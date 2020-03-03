@@ -1,0 +1,37 @@
+<view class="container lux_w100v lux_h100v">
+	<view class="box_title lux_w100 disFlex fontS30 col666666 paddLR30">
+		<view
+			wx:for="{{playInfoList}}"
+			wx:key="{{index}}"
+			class="title_item marginR16"
+		>{{item.title}}</view>
+	</view>
+	<scroll-view class="box_list lux_w100">
+		<swiper class="lux_w100 lux_h100">
+			<swiper-item
+				wx:for="{{playInfoList}}"
+				wx:key="{{index}}"
+				class="lux_w100"
+			>
+				<scroll-view scroll-y class="lux_w100 lux_h100 paddTB30">
+					<view
+						class="list_item overHid borderRad20 marginB30 boxShadow"
+						wx:for="{{item.list}}"
+						wx:for-item="newItem"
+						wx:key="{{newItem}}"
+					>
+						<view class="item_picture lux_w100">
+							<image mode="aspectFill" class="lux_w100" src="{{newItem.images}}" />
+						</view>
+						<view class="item_info col999999 fontS26 paddLR30 paddTB16">
+							<view class="info_tag">{{newItem.genres}}</view>
+							<view class="info_title fontS36 fontwb lineHei54 col333333">{{newItem.title}}</view>
+							<view class="info_casts">{{newItem.casts}}</view>
+						</view>
+					</view>
+				</scroll-view>
+			</swiper-item>
+		</swiper>
+	</scroll-view>
+</view>
+

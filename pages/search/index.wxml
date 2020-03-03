@@ -1,0 +1,52 @@
+<!--index.wxml-->
+<view class="container lux_w100v lux_h100v">
+	<view class="search_box lux_w100 paddLR30 disFlex justCSB marginB42">
+		<view class="input_box lux_w100 disFlex backf0f0f0 height60 borderRad10">
+			<icon class="icon iconfont fontS20 colcccccc iconIcon_search disFlex itemAliC justCC fontS32" />
+			<input
+			 value="{{key}}"
+			 class="search_box_input fontS28 lux_h100 lineHei60"
+			 auto-focus
+			 placeholder="请输入视频名称"
+			 confirm-type="search"
+			 bindconfirm="handleSearch"
+			/>
+		</view>
+		<view class="search_box_cancel fontS28 col999999 lineHei60" bindtap="handleGoBack">取消
+		</view>
+	</view>
+
+	<view class="history_keys lux_w100 paddLR30">
+		<view wx:if="{{history_list.length > 0}}">
+			<view class="search_keys_title fontS32 col333333 fontwb marginB24 disFlex justCSB">
+				搜索历史
+				<icon class="icon iconfont col999999 iconIcon_delete" bindtap="handleClearHistory" />
+			</view>
+			<view class="history_list disFlex marginB18">
+				<text
+          wx:for="{{history_list}}"
+          wx:key="{{index}}"
+          class="history_item fontS24 col333333 backf0f0f0 marginB24"
+          data-text="{{item}}"
+          bindtap="handleClickKey"
+        >{{item}}
+        </text>
+			</view>
+		</view>
+		<view class="search_keys_title fontS32 col333333 fontwb marginB24">热门搜索</view>
+		<view class="keys_list lux_w100 disFlex col666666">
+			<view
+			 wx:for="{{keys_list}}"
+			 wx:key="{{index}}"
+			 class="keys_item fontS28 marginB30 disFlex"
+			 data-text="{{item}}"
+			 bindtap="handleClickKey"
+			>
+				<view class="item_index {{(index < 2 && 'colf43244 fontwb') || (index === 2 && 'cole1A755 fontwb')}}">{{index + 1}}
+				</view>
+				<view class="item_label marginL16">{{item}}</view>
+			</view>
+		</view>
+	</view>
+</view>
+

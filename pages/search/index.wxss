@@ -1,0 +1,37 @@
+/* pages/search/index.wxss */
+.search_box {
+  height: 60rpx;
+}
+
+.history_keys {
+  height: calc(100vh - 102rpx);
+}
+
+.input_box icon {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.search_box .search_box_cancel {
+  width: 80rpx;
+  margin-left: 20rpx;
+  text-align: right;
+}
+
+.history_item {
+  border-radius: 200rpx;
+  padding: 8rpx 26rpx;
+  margin-right: 20rpx;
+}
+
+.search_keys_title icon {
+  padding-left: 16rpx;
+}
+
+.history_list, .keys_list {
+  flex-wrap: wrap;
+}
+
+.keys_item {
+  width: 50%;
+}

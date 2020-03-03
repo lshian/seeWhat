@@ -1,0 +1,41 @@
+<view class="container lux_w100">
+	<scroll-view
+		scroll-y
+		lower-threshold="200"
+		bindscrolltolower="addPaperList"
+		class="paper_box disFlex lux_w100v lux_h100v"
+	><view class="box_view">
+			<view
+			 class="item_view lux_w100 disFlex"
+			 wx:for="{{paper_list}}"
+			 wx:key="index"
+			 wx:if="{{index%2==0}}"
+			><image
+					src="{{item.img}}"
+					mode="aspectFill"
+					lazy-load
+					class="lux_w100"
+					data-url="{{item.img}}"
+					bindtap="handleSeeImage"
+				/>
+			</view>
+		</view>
+		<view class="box_view">
+			<view
+			 class="item_view lux_w100 disFlex"
+			 wx:for="{{paper_list}}"
+			 wx:key="index"
+			 wx:if="{{index%2==1}}"
+			><image
+					src="{{item.img}}"
+					mode="aspectFill"
+					lazy-load
+					class="lux_w100"
+					data-url="{{item.img}}"
+					bindtap="handleSeeImage"
+				/>
+			</view>
+		</view>
+	</scroll-view>
+</view>
+

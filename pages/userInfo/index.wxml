@@ -1,0 +1,44 @@
+<!--index.wxml-->
+<view class="container">
+	<view class="user_box lux_w100v lux_h100v">
+		<view class="page_title lux_w100 paddLR30 marginB12 posRel">
+			<view class="title_label">
+				<view class="title_date col999999 fontS24">{{dateTime}}</view>
+				<view class="title_name fontS50 fontwb">我的</view>
+			</view>
+		</view>
+		<view class="user_info lux_w100 paddLR30 disFlex marginB60">
+			<view class="info_pic overHid backf0f0f0">
+				<image src="{{userInfo.avatarUrl}}" class="lux_w100 lux_h100" />
+			</view>
+			<view class="info_label paddL24 disFlex justCSB flex1">
+				<view>
+					<view wx:if="{{userInfo.nickName}}" class="info_nickName fontS36 col333333">
+						{{userInfo.nickName}}
+					</view>
+					<button
+					 wx:if="{{!userInfo.nickName}}"
+					 open-type="getUserInfo"
+					 class='info_loginBtn fontwb fontS36 backInitial'
+					 bindgetuserinfo="getUserInfo"
+					>点击登录
+					</button>
+					<view wx:if="{{userInfo.nickName}}" class="fontS26 col999999">查看并编辑个人资料</view>
+				</view>
+				<icon class="icon iconfont fontS32 colcccccc iconIcon_right" />
+			</view>
+		</view>
+		<view class="user_oper lux_w100 paddLR30">
+			<view class="oper_box">
+				<view class="oper_box_item disFlex justCSB marginB42" wx:for="{{operList}}" wx:key="{{index}}">
+					<view class="item_label lineHei60 disFlex">
+						<icon class="icon iconfont fontS36 col333333 iconIcon_search" />
+						<view class="fontS32 marginL12 col333333">{{item.title}}</view>
+					</view>
+					<icon class="item_icon icon iconfont fontS32 colcccccc iconIcon_right" />
+				</view>
+			</view>
+		</view>
+	</view>
+</view>
+

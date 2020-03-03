@@ -1,21 +1,224 @@
 /**index.wxss**/
-.userinfo {
+.home_swiper{
+  height: 500rpx;
+  margin-bottom: 30rpx;
+}
+
+.subsection {
+  width: calc(100% - 60rpx);
+  height: 1rpx;
+  background: #f5f5f5;
+  margin-top: 16rpx;
+}
+
+.subsection_b {
+  width: calc(100% - 60rpx);
+  height: 1rpx;
+  background: #f2f2f2;
+}
+
+.swiper_box {
+  height: 100%;
+}
+
+.home_swiper_item_img {
+  height: 80%;
+  overflow: hidden;
+}
+
+.home_swiper_item_img icon {
+  right: 24rpx;
+  top: 16rpx;
+  color: #ffffff;
+  opacity: 0.6;
+}
+
+.home_swiper_item_text {
+  height: 20%;
+}
+
+.home_swiper_item_text button {
+  width: auto;
+  margin: 0;
+  padding: 0;
+  top: 30rpx;
+  right: 30rpx;
+  line-height: initial;
+  background: initial;
+}
+
+.item_label {
+  margin-top: 0;
+}
+
+.item_label .item_tagCol {
+  padding: 0 6rpx;
+  background: rgba(255, 49, 49, 0.8);
+  color: #ffffff;
+  bottom: 16rpx;
+  right: 24rpx;
+  border-radius: 4rpx;
+  margin-left: 16rpx;
+  font-weight: bold;
+}
+
+.home_menu_item .home_menu_item_image {
+  width: 54rpx;
+  height: 54rpx;
+}
+
+.home_movies .movies_box {
+  width: 100%;
+  white-space: nowrap;
+}
+
+.home_movies .movies_box .movies_item {
+  width: 200rpx;
+  display: inline-block;
+  margin-right: 20rpx;
+}
+
+.home_movies .movies_box .movies_item .item_images {
+  height: 300rpx;
+}
+
+.home_movies .movies_box .movies_item .item_images text {
+  bottom: 16rpx;
+  left: 16rpx;
+  line-height: 16rpx;
+}
+
+.videos_item .item_image {
+  height: 420rpx;
+}
+
+.videos_item .item_image_vice {
+  width: 40%;
+  height: 180rpx;
+}
+
+
+.videos_item .item_info .item_icon {
+  right: 0;
+  top: 30rpx;
+}
+
+.videos_item .item_info_vice {
+  width: 60%;
+  height: 180rpx;
+}
+
+.videos_item .item_info .item_info_label {
+  margin-top: 0;
+  width: 90%;
+}
+
+.videos_item .item_info .item_info_label .item_tagCol {
+  padding: 0 6rpx;
+  background: rgba(255, 49, 49, 0.8);
+  color: #ffffff;
+  bottom: 16rpx;
+  right: 24rpx;
+  border-radius: 4rpx;
+  margin-left: 16rpx;
+  font-weight: bold;
+}
+
+.videos_item .item_info_vice .item_info_label {
+  width: 100%;
+  height: 100%;
+}
+
+.videos_item .item_info_vice .item_tag {
+  bottom: 0;
+  left: 0;
+}
+
+.videos_item .item_info_vice .item_info_label .item_tagCol {
+  margin-left: 0;
+  display: table;
+  bottom: 42rpx;
+}
+
+.videos_item .item_info_vice .item_icon_vice {
+  bottom: 0;
+  right: 0;
+}
+
+.videos_box .video_more {
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  color: #3373f3;
+}
+
+.videos_box .video_more icon.iconIcon_down {
+  font-weight: bold;
+}
+
+.videos_box .video_more icon.iconIcon_loading {
+  font-size: 36rpx;
+  -webkit-animation:loading 1.5s linear infinite;
+  animation:loading 1.5s linear infinite;
+}
+
+.videos_box .video_more .loading_text {
+  top: -4rpx;
+}
+
+.videos_box .video_more text {
+  font-weight: bold;
+  font-size: 26rpx;
+}
+
+.wallpaper_box {
+  height: 810rpx;
+}
+
+.wallpaper_box .wallpaper_item {
+  width: 49%;
+  height: 400rpx;
+  display: inline-block;
+}
+
+.wallpaper_box .wallpaper_item:nth-child(1), .wallpaper_box .wallpaper_item:nth-child(3) {
+  margin-right: 2%;
+}
+
+.wallpaper_box .wallpaper_item .wallpaper_item_view {
+  height: 50%;
+}
+.wallpaper_box .wallpaper_item .wallpaper_item_view:first-child {
+  margin-bottom: 2%;
+}
+
+.wallpaper_box .wallpaper_item_vice image {
+  height: 540rpx;
+  top: -70rpx;
+}
+
+.home_news_box .news_item {
   display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.home_news_box .news_item .news_item_image {
+  width: 88rpx;
+  height: 88rpx;
 }
 
-.userinfo-nickname {
-  color: #aaa;
+.home_news_box .news_item .news_item_info {
+  width: calc(100% - 88rpx);
 }
 
-.usermotto {
-  margin-top: 200px;
+@-webkit-keyframes loading{
+ 
+  0%{-webkit-transform:rotate(0deg);}
+
+  25%{-webkit-transform:rotate(90deg);}
+
+  50%{-webkit-transform:rotate(180deg);}
+
+  75%{-webkit-transform:rotate(270deg);}
+
+  100%{-webkit-transform:rotate(360deg);}
 }

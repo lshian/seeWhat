@@ -1,0 +1,33 @@
+<!--index.wxml-->
+<view class="container">
+	<scroll-view
+		scroll-y
+		lower-threshold="200"
+		bindscrolltolower="addVideoList"
+		class="lux_w100v lux_h100v"
+	><view
+		class="videos_item lux_w100 marginB24 disFlex paddLR30"
+		wx:for="{{video_list}}"
+		wx:key="{{index}}"
+		data-info="{{item.id}}"
+		bindtap="handleRouter"
+		>
+			<view class="item_image lux_w100 borderRad20 overHid item_image_vice">
+				<image
+					mode="aspectFill"
+					lazy-load
+					class="lux_w100 lux_h100"
+					src="{{item.url}}"
+				/>
+			</view>
+			<view class="item_info lux_w100 posRel flex1 item_info_vice marginL16">
+				<view class="item_info_label posRel item_info_label_vice}}">
+					<text class="fontS30 lux_w100 disblok fontwb textHide2">{{item.title}}</text>
+					<text class="item_tag posAbs fontS26 col999999">{{item.author_title}}</text>
+					<text class="item_tagCol item_tag fontS20 posAbs">{{item.duration}}</text>
+				</view>
+			</view>
+		</view>
+	</scroll-view>
+</view>
+

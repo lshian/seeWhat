@@ -1,0 +1,70 @@
+<view class="container">
+	<view class="video_detail colffffff lux_w100 lux_h100 posRel">
+		<video
+		 title="{{detail.title}}"
+		 vslide-gesture
+		 show-mute-btn
+		 autoplay="{{autoplay}}"
+		 poster="{{detail.coverForDetail}}"
+		 src="{{detail.playUrl}}"
+		 class="video_play lux_w100 marginB12"
+		/>
+		<scroll-view scroll-y class="video_scroll">
+			<view class="paddLR30 lux_w100 marginB12">
+				<view class="video_info marginB12">
+					<view class="video_label disFlex posRel justCSB">
+						<view>
+							<view class="info_title fontS32 fontwb marginB6">{{detail.title}}</view>
+							<view class="info_tag fontS24 colcccccc marginB12">
+								#{{detail.category}} / {{detail.duration}}
+							</view>
+						</view>
+						<button open-type='share' data-info="{{detail}}" class="icon iconfont iconIcon_share posAbs fontS36 col999999" />
+					</view>
+					<view class="info_introduce fontS26 colcccccc">{{detail.description}}</view>
+				</view>
+				<icon class="subsection_b lux_w100" />
+				<view class="video_author lux_w100 disFlex">
+					<view class="author_image overHid">
+						<image src="{{detail.author.icon}}" class="lux_w100 lux_h100" />
+					</view>
+					<view class="author_info marginL16 flex1">
+						<view class="fontS30 lineHei54">{{detail.author.name}}</view>
+						<view class="fontS24">{{detail.author.description}}</view>
+					</view>
+				</view>
+				<icon class="subsection_b lux_w100" />
+			</view>
+			<view class="video_recommend lux_w100 paddLR30 marginB30">
+				<view class="recommend_title fontS30 fontwb marginB16">相关推荐</view>
+				<view class="recommend_list lux_h100">
+					<view
+					 class="videos_item marginB24 disFlex"
+					 wx:for="{{recommend}}"
+					 wx:key="{{index}}"
+					 data-info="{{item.id}}"
+					 bindtap="handleRouter"
+					>
+						<view class="item_image lux_w100 borderRad20 overHid item_image_vice">
+							<image
+							 mode="aspectFill"
+							 lazy-load
+							 class="lux_w100 lux_h100"
+							 src="{{item.url}}"
+							/>
+						</view>
+						<view class="item_info lux_w100 posRel item_info_vice marginL16">
+							<view class="item_info_label posRel item_info_label_vice}}">
+								<text class="fontS30 lux_w100 disblok fontwb textHide2">{{item.title}}</text>
+								<text class="item_tag posAbs fontS26 col999999">{{item.author_title}}</text>
+								<text class="item_tagCol item_tag fontS20 posAbs">{{item.duration}}</text>
+							</view>
+						</view>
+					</view>
+				</view>
+			</view>
+		</scroll-view>
+	</view>
+	<image src="{{detail.coverBlurred}}" class="detail_back lux_w100v lux_h100v posFix" />
+</view>
+

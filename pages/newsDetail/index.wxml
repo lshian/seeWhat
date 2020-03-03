@@ -1,0 +1,20 @@
+<view class="container lux_w100 paddLR30 paddT24">
+  <view class="detail_title fontS42 fontwb marginB30">
+    {{detail.title}}
+  </view>
+  <view class="detail_tag lux_w100 fontS26 col999999 marginB30">
+    <text>{{detail.source}}</text>
+    <text class="marginL16">{{detail.pubDate}}</text>
+  </view>
+  <view class="detail_content">
+    <view class="content_item lux_w100 fontS36" wx:for="{{detail.allList}}" wx:key="{{index}}">
+      <view wx:if="{{!item.url}}" class="lineHei48 marginB12">{{item}}</view>
+      <image
+        mode="aspectFit"
+        class="lux_w100 marginT12 marginB12"
+        wx:if="{{item.url}}"
+        src="{{item.url}}"
+      />
+    </view>
+  </view>
+</view>

@@ -1,0 +1,17 @@
+/**index.wxss**/
+.box_title {
+  height: 80rpx;
+  line-height: 80rpx;
+  border-bottom: 2rpx solid #eeeeee;
+}
+
+.box_list {
+  height: calc(100vh - 80rpx);
+  background: #f0f0f0;
+}
+
+.list_item {
+  background: #ffffff;
+  width: calc(100% - 60rpx);
+  margin-left: 30rpx;
+}

@@ -1,5 +1,214 @@
 <!--index.wxml-->
 <view class="container">
-	
+	<view class="page_title lux_w100 paddLR30 marginB12 posRel">
+		<view class="title_label posRel">
+			<view class="title_date col999999 fontS24 posAbs">{{dateTime}}
+			</view>
+			<view class="title_name fontS50 fontwb">首页</view>
+		</view>
+		<view class="title_more posAbs" bindtap="handleSearch">
+			<icon class="icon iconfont fontS50 col333333 iconIcon_search" />
+		</view>
+	</view>
+	<swiper
+	 autoplay
+	 circular
+	 current="{{current_index}}"
+	 previous-margin="24rpx"
+	 next-margin="24rpx"
+	 class="home_swiper lux_w100 posRel"
+	>
+		<swiper-item wx:for="{{Carousel}}" wx:key="{{index}}" class="home_swiper_item paddLR6">
+			<view class="swiper_box borderTLRRad30 overHid lux_w100">
+				<view
+				 data-type
+				 data-url="{{item.url}}"
+				 data-info="{{item.id}}"
+				 data-path="videoDetail"
+				 class="home_swiper_item_img posRel"
+				 bindtap="{{item.type === 1 ? 'handleRouter' : 'handleSeeImage'}}"
+				>
+					<icon class="icon iconfont posAbs fontS36 {{item.type === 1 ? 'iconIcon_video' : 'iconIcon_pic' }}" />
+					<image mode="aspectFill" class="lux_w100" src="{{item.url}}" />
+				</view>
+				<view class="home_swiper_item_text lux_w100 paddT16 posRel">
+					<view class="item_label lux_w100">
+						<view class="item_title fontS32 lux_w100 textHide disblok fontwb">{{item.title}}</view>
+						<view
+							wx:if="{{item.type === 1}}"
+							class="item_tag fontS26 col999999"
+						>
+							{{item.author_title}}
+						</view>
+					</view>
+				</view>
+			</view>
+		</swiper-item>
+	</swiper>
+	<icon class="subsection_b" />
+	<view class="home_menu lux_w100 paddLR30 disFlex justCSB paddTB30">
+		<view
+		 wx:for="{{MenuList}}"
+		 wx:key="{{index}}"
+		 class="home_menu_item disFlex flexDc itemAliC"
+		 data-path="{{item.path}}"
+		 data-info="{{item}}"
+		 bindtap="handleRouter"
+		>
+			<image src="{{item.src}}" lazy-load class="home_menu_item_image marginB12" />
+			<text class="home_menu_item_text fontS24 col999999">{{item.title}}</text>
+		</view>
+	</view>
+	<icon class="subsection_b marginB42" />
+	<view class="home_movies lux_w100 paddLR30 marginB30">
+		<view class="fontS36 lineHei36 fontwb marginB24 disFlex justCSB">
+			正在热映
+			<view
+				class="fontwNor fontS30 disFlex col0279fb"
+				data-path="movieDetail"
+				bindtap="handleRouter"
+			>
+				查看更多
+				<icon class="disFlex icon iconfont iconIcon_right" />
+			</view>
+		</view>
+		<scroll-view scroll-x class="movies_box">
+			<view
+				class="movies_item"
+				wx:for="{{movie_list}}"
+				wx:key="{{index}}"
+				data-path="movieDetail"
+				data-info="{{item.id}}"
+				bindtap="handleRouter"
+			>
+				<view class="item_images posRel lux_w100 overHid borderRad20">
+					<text class="posAbs colf43244 fontS26">{{item.average}}</text>
+					<image lazy-load src="{{item.images}}" class="lux_w100 lux_h100 borderRad20" />
+				</view>
+				<view class="item_info lux_w100">
+					<view class="item_label fontS24 textHide fontwb">{{item.title}}({{item.year}})</view>
+					<view class="disFlex">
+						<text
+						class="item_tag fontS20 col999999"
+						wx:for="{{item.genres}}"
+						wx:for-item="newItem"
+						wx:key="{{newItem}}"
+						>/{{newItem}}
+						</text>
+					</view>
+				</view>
+			</view>
+		</scroll-view>
+	</view>
+	<icon class="subsection_b marginB42" />
+	<view class="home_videos lux_w100 paddLR30 marginB16">
+		<view class="fontS36 lineHei36 fontwb marginB24 disFlex justCSB">
+			精选短视频
+			<view class="fontwNor fontS30 disFlex col0279fb">
+				查看更多
+				<icon class="disFlex icon iconfont iconIcon_right" />
+			</view>
+		</view>
+		<view class="videos_box overHid">
+			<view
+			 class="videos_item marginB24 {{index !== 0 && 'disFlex'}}"
+			 wx:for="{{video_list}}"
+			 wx:key="{{index}}"
+			 data-info="{{item.id}}"
+			 data-path="videoDetail"
+			 bindtap="handleRouter"
+			>
+				<view class="item_image lux_w100 borderRad20 overHid {{index !== 0 && 'item_image_vice'}}">
+					<image
+					 mode="aspectFill"
+					 lazy-load
+					 class="lux_w100 {{index !== 0 && 'lux_h100'}}"
+					 src="{{item.url}}"
+					/>
+				</view>
+				<view class="item_info lux_w100 posRel {{index !== 0 ? 'item_info_vice marginL16' : 'paddT16'}}">
+					<view class="item_info_label posRel {{index !== 0 && 'item_info_label_vice'}}">
+						<text class="fontS32 lux_w100 disblok fontwb {{index !== 0 ? 'textHide2' : 'textHide'}}">{{item.title}}</text>
+						<text class="item_tag {{index !== 0 && 'posAbs'}} fontS26 col999999">{{item.author_title}}</text>
+						<text class="item_tagCol item_tag fontS20 {{index !== 0 && 'posAbs'}}">{{item.duration}}</text>
+					</view>
+				</view>
+			</view>
+			<view wx:if="{{video_list.length > 0}}" class="video_more lux_w100">
+				<view wx:if="{{video_list.length < total_video_list.length}}">
+					<icon wx:if="{{!video_loading}}" class="lux_w100 icon iconfont iconIcon_down" bindtap="moreVideo" />
+					<icon wx:if="{{video_loading}}" class="icon iconfont iconIcon_loading col999999" />
+					<text class="loading_text col999999 marginL12 posRel" wx:if="{{video_loading}}">加载中...</text>
+				</view>
+				<text wx:if="{{video_list.length >= total_video_list.length}}">想看更多？点这里</text>
+			</view>
+		</view>
+	</view>
+	<icon class="subsection_b marginB42" />
+	<view class="home_wallpaper lux_w100 paddLR30 marginB30">
+		<view class="fontS36 lineHei36 fontwb marginB24 disFlex justCSB">图片壁纸</view>
+		<view class="wallpaper_box lux_w100 overHid borderRad20">
+			<view class="wallpaper_item overHid {{item.type === 1 && 'wallpaper_item_vice'}}" wx:for="{{wallpaper_list}}" wx:key="{{index}}">
+				<image
+				 mode="aspectFill"
+				 lazy-load
+				 wx:if="{{item.type === 1}}"
+				 src="{{item.url}}"
+				 data-url="{{item.url}}"
+				 class="lux_w100 posRel"
+				 bindtap="handleSeeImage"
+				/>
+				<view
+				 class="wallpaper_item_view overHid disFlex"
+				 wx:if="{{item.type === 2}}"
+				 wx:for="{{item.value}}"
+				 wx:for-item="newItem"
+				 wx:key="{{newItem}}"
+				>
+					<image
+					 mode="aspectFill"
+					 lazy-load
+					 src="{{newItem.url}}"
+					 data-url="{{newItem.url}}"
+					 class="lux_w100 lux_h100 posRel"
+					 bindtap="handleSeeImage"
+					/>
+				</view>
+			</view>
+		</view>
+	</view>
+	<icon class="subsection_b marginB42" />
+	<view class="home_news lux_w100 paddLR30 marginB30">
+		<view class="fontS36 lineHei36 fontwb marginB24 disFlex justCSB">
+			新闻头条
+			<view class="fontwNor fontS30 disFlex col0279fb">
+				查看更多
+				<icon class="disFlex icon iconfont iconIcon_right" />
+			</view>
+		</view>
+		<view class="home_news_box">
+			<view
+			 class="news_item lux_w100 marginB24"
+			 wx:for="{{news_list}}"
+			 wx:key="{{index}}"
+			 data-path="newsDetail"
+			 data-info="{{item}}"
+			 bindtap="handleRouter"
+			>
+				<view wx:if="{{item.havePic}}" class="news_item_image overHid borderRad10">
+					<image
+					 mode="scaleToFill"
+					 lazy-load
+					 class="lux_w100 lux_h100"
+					 src="{{item.image}}"
+					/>
+				</view>
+				<view class="lux_w100 {{item.havePic && 'news_item_info paddL16'}}">
+					<view class="item_title textHide fontS26 fontwb lineHei48">{{item.title}}</view>
+					<view class="textHide fontS24 col999999">{{item.content}}</view>
+				</view>
+			</view>
+		</view>
+	</view>
 </view>
 

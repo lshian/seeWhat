@@ -1,0 +1,102 @@
+<view class="container lux_w100">
+	<view class="wallpaper_title lux_w100 posRel disFlex itemAliC justCC">
+		<view
+		 wx:for="{{navbar}}"
+		 wx:key="{{index}}"
+		 data-index="{{index}}"
+		 bindtap="handleSelectNavBar"
+		 class="title_item flex1 lineHei60 posRel"
+		>
+			<text class="fontS30 {{index === current_index ? 'col0279fb' : 'col666666'}}">{{item.title}}</text>
+		</view>
+		<icon class="posAbs zIndex1 transitionAll {{iconClass[current_index]}}" />
+	</view>
+	<swiper
+		current="{{current_index}}"
+		bindchange="handleChangeSwiper"
+		class="wallpaper_box lux_w100 posRel"
+	>
+		<swiper-item class="wallpaper_item">
+			<swiper
+        current="{{new_info.current}}"
+        previous-margin="50rpx"
+        next-margin="50rpx"
+				data-type="new"
+				bindchange="handleChangeNewOrHot"
+        class="lux_w100v lux_h100 paddT40 paddB80 posRel zIndex1"
+      >
+				<swiper-item wx:for="{{new_info.list}}" wx:key="{{index}}" class="borderRad30 posRel paddLR12">
+          <view
+						class="wallpaper_main lux_w100 lux_h100 overHid borderRad30 disFlex boxShadow"
+					><view class="wallpaper_main_info lux_w100 paddTB50 paddLR30">
+							<view class="info_number col333333 fontwb">
+								<text class="fontS56">{{index < 9 ? ('0' + (index + 1)) : index + 1}}</text>
+								<text class="fontS32 fontwNor">
+									<text class="paddLR12">/</text>{{new_info.list.length}}
+								</text>
+							</view>
+							<view class="fontS28 col999999">点击图片后长按可分享或保存到本地</view>
+						</view>
+            <view class="wallpaper_main_pic lux_w100">
+							<image
+								mode="aspectFill"
+								src="{{item.img}}"
+								class="lux_w100 lux_h100"
+								data-url="{{item.img}}"
+								bindtap="handleSeeImage"
+							/>
+						</view>
+          </view>
+				</swiper-item>
+			</swiper>
+		</swiper-item>
+		<swiper-item class="wallpaper_item">
+			<swiper
+        current="{{hot_info.current}}"
+        previous-margin="60rpx"
+        next-margin="60rpx"
+				data-type="hot"
+				bindchange="handleChangeNewOrHot"
+        class="lux_w100v lux_h100 paddT30 paddB100 posRel zIndex1"
+      >
+				<swiper-item wx:for="{{hot_info.list}}" wx:key="{{index}}" class="borderRad30 posRel paddLR12">
+          <view
+						class="wallpaper_main lux_w100 lux_h100 overHid borderRad30 disFlex boxShadow"
+					><view class="wallpaper_main_info lux_w100 paddTB50 paddLR30">
+							<view class="info_number col333333 fontwb">
+								<text class="fontS56">{{index < 9 ? ('0' + (index + 1)) : index + 1}}</text>
+								<text class="fontS32 fontwNor">
+									<text class="paddLR12">/</text>{{hot_info.list.length}}
+								</text>
+							</view>
+							<view class="fontS28 col999999">点击图片后长按可分享或保存到本地</view>
+						</view>
+            <view class="wallpaper_main_pic lux_w100">
+							<image
+								mode="aspectFill"
+								src="{{item.img}}"
+								class="lux_w100 lux_h100"
+								data-url="{{item.img}}"
+								bindtap="handleSeeImage"
+							/>
+						</view>
+          </view>
+				</swiper-item>
+			</swiper>
+		</swiper-item>
+		<swiper-item class="wallpaper_item">
+			<scroll-view scroll-y class="category_box lux_w100 lux_h100 marginB30">
+				<view
+          wx:for="{{category}}"
+          wx:key="{{index}}"
+          data-info="{{item}}"
+          bindtap="handleRouter"
+          class="category_item lux_w100 posRel overHid"
+        >
+					<view class="posAbs zIndex1 colffffff fontS30 lux_w100">{{item.name}}</view>
+					<image mode="aspectFill" src="{{item.cover}}" class="lux_w100 posAbs" />
+				</view>
+			</scroll-view>
+		</swiper-item>
+	</swiper>
+</view>

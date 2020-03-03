@@ -1,0 +1,375 @@
+.lux_w100 {
+  width: 100%;
+}
+
+.lux_w100v {
+  width: 100vw;
+}
+
+.lux_h98 {
+  height: 98%;
+}
+
+.lux_h100 {
+  height: 100%;
+}
+
+.lux_h100v {
+  height: 100vh;
+}
+
+.paddLR6 {
+  padding-left: 6rpx;
+  padding-right: 6rpx;
+}
+
+.paddLR12 {
+  padding-left: 12rpx;
+  padding-right: 12rpx;
+}
+
+.paddLR24 {
+  padding-left: 24rpx;
+  padding-right: 24rpx;
+}
+
+.paddLR30 {
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+}
+
+.paddTB8 {
+  padding-top: 8rpx;
+  padding-bottom: 8rpx;
+}
+
+.paddTB16 {
+  padding-top: 16rpx;
+  padding-bottom: 16rpx;
+}
+
+.paddTB24 {
+  padding-top: 24rpx;
+  padding-bottom: 24rpx;
+}
+
+.paddTB30 {
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+}
+
+.paddTB50 {
+  padding-top: 50rpx;
+  padding-bottom: 50rpx;
+}
+
+.col0279fb {
+  color: #0279fb;
+}
+
+.colf43244 {
+  color: #f43244;
+}
+
+.cole1A755 {
+  color: #e1A755;
+}
+
+.col333333 {
+  color: #333333;
+}
+
+.col666666 {
+  color: #666666;
+}
+
+.col999999 {
+  color: #999999;
+}
+
+.colcccccc {
+  color: #cccccc;
+}
+
+.colffffff {
+  color: #ffffff;
+}
+
+.backInitial {
+  background: initial;
+}
+
+.backf0f0f0 {
+  background: #f0f0f0;
+}
+
+.borTop2f2f2f2 {
+  border-top: 2rpx solid #f2f2f2;
+}
+
+.lineHei36 {
+  line-height: 36rpx;
+}
+
+.lineHei48 {
+  line-height: 48rpx;
+}
+
+.lineHei54 {
+  line-height: 54rpx;
+}
+
+.lineHei60 {
+  line-height: 60rpx;
+}
+
+.height60 {
+  height: 60rpx;
+}
+
+.fontS20 {
+  font-size: 20rpx;
+}
+
+.fontS24 {
+  font-size: 24rpx;
+}
+
+.fontS26 {
+  font-size: 26rpx;
+}
+
+.fontS28 {
+  font-size: 28rpx;
+}
+
+.fontS30 {
+  font-size: 30rpx;
+}
+
+.fontS32 {
+  font-size: 32rpx;
+}
+
+.fontS36 {
+  font-size: 36rpx;
+}
+
+.fontS42 {
+  font-size: 42rpx;
+}
+
+.fontS46 {
+  font-size: 46rpx;
+}
+
+.fontS50 {
+  font-size: 50rpx;
+}
+
+.fontS56 {
+  font-size: 56rpx;
+}
+
+.fontwb {
+  font-weight: bold;
+}
+
+.fontwNor {
+  font-weight: normal;
+}
+
+.textHide {
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+
+.textHide2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.textHide3 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+.disblok {
+  display: block;
+}
+
+.paddT12 {
+  padding-top: 12rpx;
+}
+
+.paddT16 {
+  padding-top: 16rpx;
+}
+
+.paddT24 {
+  padding-top: 24rpx;
+}
+
+.paddT30 {
+  padding-top: 30rpx;
+}
+.paddT40 {
+  padding-top: 40rpx;
+}
+
+
+.paddB80 {
+  padding-bottom: 80rpx;
+}
+
+.paddB100 {
+  padding-bottom: 100rpx;
+}
+
+.paddL16 {
+  padding-left: 16rpx;
+}
+
+.paddL24 {
+  padding-left: 24rpx;
+}
+
+.marginT12 {
+  margin-top: 12rpx;
+}
+
+.marginL12 {
+  margin-left: 12rpx;
+}
+
+.marginL16 {
+  margin-left: 16rpx;
+}
+
+.marginR16 {
+  margin-right: 16rpx;
+}
+
+.marginB2 {
+  margin-bottom: 2rpx;
+}
+
+.marginB6 {
+  margin-bottom: 6rpx;
+}
+
+.marginB12 {
+  margin-bottom: 12rpx;
+}
+
+.marginB16 {
+  margin-bottom: 16rpx;
+}
+
+.marginB18 {
+  margin-bottom: 18rpx;
+}
+
+.marginB24 {
+  margin-bottom: 24rpx;
+}
+
+.marginB30 {
+  margin-bottom: 30rpx;
+}
+
+.marginB42 {
+  margin-bottom: 42rpx;
+}
+
+.marginB60 {
+  margin-bottom: 60rpx;
+}
+
+.marginLR2 {
+  margin-left: 2rpx;
+  margin-right: 2rpx;
+}
+
+.marginLR30 {
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+}
+
+.borderRad10 {
+  border-radius: 10rpx;
+}
+
+.borderRad20 {
+  border-radius: 20rpx;
+}
+
+.borderRad30 {
+  border-radius: 30rpx;
+}
+
+.borderTLRRad30 {
+  border-top-left-radius: 30rpx;
+  border-top-right-radius: 30rpx;
+}
+
+.boxShadow {
+  box-shadow: 5rpx 10rpx 10rpx #cccccc;
+}
+
+.overHid {
+  overflow: hidden;
+}
+
+.overAuto {
+  overflow: auto;
+}
+
+.posRel {
+  position: relative;
+}
+
+.posAbs {
+  position: absolute;
+}
+
+.posFix {
+  position: fixed;
+}
+
+.disFlex {
+  display: flex;
+}
+
+.flex1 {
+  flex: 1;
+}
+
+.flexDc {
+  flex-direction: column;
+}
+
+.itemAliC {
+  align-items: center;
+}
+
+.justCC {
+  justify-content: center;
+}
+
+.justCSB {
+  justify-content: space-between;
+}
+
+.zIndex1 {
+  z-index: 1;
+}
+
+.transitionAll {
+  transition: all 0.5s;
+}

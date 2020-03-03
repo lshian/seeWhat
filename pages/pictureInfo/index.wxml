@@ -1,0 +1,50 @@
+<view class="container lux_w100v lux_h100v">
+	<view class="picture_title lux_w100 posRel fontS36 col333333 paddLR30 zIndex1">
+		<view class="title_text lux_w100">
+			{{picture_list[current].name}}
+		</view>
+		<view class="title_category posAbs paddLR30" bindtap="handleShowBox">
+			<icon class="icon iconfont iconIcon_category fontS46 col333333" />
+		</view>
+		<view class="category_box posAbs col333333 paddLR30 overHid transitionAll {{is_open && 'paddT16 boxShow'}}">
+			<view class="category_box_title lux_w100 fontS36 fontwb">选择类别</view>
+			<view class="title_box lux_w100 fontS24 disFlex paddTB24">
+				<text
+					wx:for="{{picture_list}}"
+					wx:key="{{index}}"
+					class="title_item backf0f0f0 marginB24 {{ current === index && 'active'}}"
+					data-info="{{item}}"
+					data-index="{{index}}"
+					bindtap="handleSelect"
+				>{{item.name}}</text>
+			</view>
+		</view>
+	</view>
+	<scroll-view
+		scroll-y
+		class="picture_scroll lux_w100"
+		lower-threshold="200"
+		bindscrolltolower="addPicList"
+	>
+		<view class="box_view disFlex lux_w100">
+			<view
+			 class="item_view overHid marginB2 {{index % 3 === 1 && 'marginLR2'}}"
+			 wx:for="{{picture_list[current].list}}"
+			 wx:key="index"
+			><image
+					src="{{item.url}}"
+					mode="aspectFill"
+					lazy-load
+					class="lux_w100"
+					data-url="{{item.url}}"
+					bindtap="handleSeeImage"
+				/>
+			</view>
+		</view>
+	</scroll-view>
+	<view
+		class="picture_back posFix lux_w100v lux_h100v transitionAll {{is_open && 'backShow'}}"
+		bindtap="handleHideBox"
+	/>
+</view>
+

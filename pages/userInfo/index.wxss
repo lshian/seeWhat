@@ -1,0 +1,26 @@
+/**index.wxss**/
+.user_box {
+  /* background: #f0f0f0; */
+}
+
+.user_info icon {
+  line-height: 100rpx;
+}
+
+.info_pic {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+
+.info_loginBtn {
+  padding: 0;
+  line-height: normal;
+  padding-top: 26rpx;
+  display: flex;
+}
+
+.subsection_b {
+  height: 1rpx;
+  background: #f0f0f0;
+}

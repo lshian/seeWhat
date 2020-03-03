@@ -1,10 +1,43 @@
 /**app.wxss**/
+@import './iconfont/iconfont.wxss';
+@import './utils/utils.wxss';
+
+view, text, swiper, swiper-item {
+  box-sizing: border-box;
+}
+
+button {
+  outline:none;
+}
+
+button::after {
+  border: 0;
+}
+
 .container {
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 200rpx 0;
   box-sizing: border-box;
-} 
+}
+
+.page_title {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20rpx;
+}
+
+.page_title .title_label {
+  width: 200rpx;
+}
+
+.page_title .title_label .title_date {
+  top: -24rpx;
+}
+
+.title_more {
+  right: 30rpx;
+  bottom: 0;
+}

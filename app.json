@@ -1,12 +1,41 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/index/index",
+    "pages/search/index",
+    "pages/movieInfo/index",
+    "pages/videoList/index",
+    "pages/videoDetail/index",
+    "pages/userInfo/index",
+    "pages/newsInfo/index",
+    "pages/newsDetail/index",
+    "pages/wallpaperMobile/index",
+    "pages/wallpaperMobileList/index",    
+    "pages/movieDetail/index",
+    "pages/pictureInfo/index"
   ],
   "window": {
-    "backgroundTextStyle": "light",
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#333333",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/public/images/homePath.png",
+        "selectedIconPath": "/public/images/selectHomePath.png"
+      },
+      {
+        "pagePath": "pages/userInfo/index",
+        "text": "我的",
+        "iconPath": "/public/images/userPath.png",
+        "selectedIconPath": "/public/images/selectUserPath.png"
+      }
+    ]
   },
   "sitemapLocation": "sitemap.json"
 }

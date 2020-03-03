@@ -1,0 +1,56 @@
+<view class="container lux_w100v lux_h100v">
+	<scroll-view
+	 scroll-x
+	 scroll-left="{{titleScroll}}"
+	 scroll-with-animation
+	 class="news_title lux_w100 fontS30 col666666"
+	>
+		<view
+		 class="title_item {{index === current_index && 'col0279fb fontS32 fontwb'}}"
+		 wx:for="{{newsInfoList}}"
+		 wx:key="{{index}}"
+		 data-index="{{index}}"
+		 bindtap="handleSelectId"
+		>{{item.name}}
+		</view>
+	</scroll-view>
+
+	<view class="newsInfo_box lux_w100 posRel">
+		<scroll-view
+		 scroll-y
+		 class="lux_h100"
+		 wx:if="{{current_index === index}}"
+		 wx:for="{{newsInfoList}}"
+		 wx:key="{{index}}"
+		 lower-threshold="200"
+		 bindscrolltolower="additionalNews"
+		>
+			<view class="lux_w100 paddLR30" wx:if="{{!item.isNoData}}">
+				<view
+				 class="news_item lux_w100 paddTB24 disFlex"
+				 wx:for="{{item.list}}"
+				 wx:for-item="newItem"
+				 wx:key="{{newItem}}"
+				 data-info="{{newItem}}"
+				 bindtap="handleRouter"
+				>
+					<view wx:if="{{newItem.img}}" class="item_images lux_w100 disFlex overHid">
+						<image src="{{newItem.img}}" mode="aspectFill" class="lux_w100" />
+					</view>
+					<view class="item_info lux_w100 paddL24">
+						<view class="info_title marginB18 fontS32">{{newItem.title}}</view>
+						<view class="info_tags disFlex justCSB fontS24 col999999">
+							<text class="">{{newItem.source}}</text>
+							<text class="">{{newItem.pubDate}}</text>
+						</view>
+					</view>
+				</view>
+			</view>
+			<view class="default_info disFlex" wx:if="{{item.isNoData}}">
+				<image src="{{default}}" mode="aspectFit" class="lux_w100 marginB24" />
+				<text class="lux_w100 fontS26 col999999">暂无数据</text>
+			</view>
+		</scroll-view>
+	</view>
+</view>
+
