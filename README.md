@@ -17,6 +17,5 @@
 ## 2、配置信息（242/245/246）
 
 ```
-1. appId: wx2e321ff7e87a0671
-2. 接口地址：https://yxb.yihpc.com/api
+1. 接口地址：https://yxb.yihpc.com/api
 ```
