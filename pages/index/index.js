@@ -168,7 +168,6 @@ Page({
     const { pic_class_list } = this.data;
     const random = Math.floor(Math.random() * 15 + 1);
     if (pic_class_list.length <= 0) {
-      console.log(123);
       this.fetPicClass(random)
     } else this.fetchWallpaper(pic_class_list[random].id);
   },

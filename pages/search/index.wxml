@@ -5,7 +5,7 @@
 			<icon class="icon iconfont fontS20 colcccccc iconIcon_search disFlex itemAliC justCC fontS32" />
 			<input
 			 value="{{key}}"
-			 class="search_box_input fontS28 lux_h100 lineHei60"
+			 class="search_box_input flex1 fontS28 lux_h100 lineHei60"
 			 auto-focus
 			 placeholder="请输入视频名称"
 			 confirm-type="search"

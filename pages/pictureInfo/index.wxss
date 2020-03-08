@@ -52,8 +52,8 @@
 }
 
 .item_view {
-  width: calc((100vw - 4rpx) / 3);
-  height: calc((100vw - 4rpx) / 3);
+  width: calc((100vw - 4rpx) / 2);
+  height: calc((100vw - 4rpx) / 2);
   display: inline-block;
 }
 

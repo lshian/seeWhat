@@ -32,7 +32,7 @@
 			 wx:for="{{picture_list[current].list}}"
 			 wx:key="index"
 			><image
-					src="{{item.url}}"
+					src="{{item.img_1024_768}}"
 					mode="aspectFill"
 					lazy-load
 					class="lux_w100"

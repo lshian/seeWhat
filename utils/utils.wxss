@@ -91,6 +91,10 @@
   color: #cccccc;
 }
 
+.colf0f0f0 {
+  color: #f0f0f0;
+}
+
 .colffffff {
   color: #ffffff;
 }
@@ -255,6 +259,10 @@
   margin-right: 16rpx;
 }
 
+.marginT30 {
+  margin-top: 30rpx;
+}
+
 .marginB2 {
   margin-bottom: 2rpx;
 }
@@ -346,6 +354,10 @@
   display: flex;
 }
 
+.flexWrap {
+  flex-wrap: wrap;
+}
+
 .flex1 {
   flex: 1;
 }
@@ -371,5 +383,5 @@
 }
 
 .transitionAll {
-  transition: all 0.5s;
+  transition: all 0.3s;
 }

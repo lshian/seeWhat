@@ -28,15 +28,17 @@ Page({
           id: item.id,
           genres: item.genres.join(' | '),
           title: item.title,
+          score: item.rating.average.toFixed(1),
           rating: item.rating,
           images: item.images.medium,
           pubdates: item.pubdates.join(' '),
           casts: casts.join(' '),
+          year: item.year,
         }
       })
       playInfoList[current].list.push(...subjects);
-      this.setData({ playInfoList }, () => wx.hideLoading());
       console.log(playInfoList);
+      this.setData({ playInfoList }, () => wx.hideLoading());
     })
   }
 })

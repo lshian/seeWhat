@@ -13,22 +13,32 @@
 				wx:key="{{index}}"
 				class="lux_w100"
 			>
-				<scroll-view scroll-y class="lux_w100 lux_h100 paddTB30">
+				<scroll-view scroll-y class="lux_w100 lux_h100 disFlex flexWrap">
 					<view
-						class="list_item overHid borderRad20 marginB30 boxShadow"
+						class="list_item overHid borderRad20 marginT30 disFlex flexWrap"
 						wx:for="{{item.list}}"
 						wx:for-item="newItem"
 						wx:key="{{newItem}}"
 					>
-						<view class="item_picture lux_w100">
-							<image mode="aspectFill" class="lux_w100" src="{{newItem.images}}" />
+						<view class="item_picture overHid borderRad10">
+							<image mode="widthFix" class="lux_w100" src="{{newItem.images}}" />
 						</view>
-						<view class="item_info col999999 fontS26 paddLR30 paddTB16">
-							<view class="info_tag">{{newItem.genres}}</view>
-							<view class="info_title fontS36 fontwb lineHei54 col333333">{{newItem.title}}</view>
-							<view class="info_casts">{{newItem.casts}}</view>
+						<view class="item_info col999999 fontS24 paddLR30 paddTB16 flex1">
+							<view class="info_title fontS32 fontwb lineHei54 col333333 marginB16">
+								{{newItem.title}}({{newItem.year}})
+							</view>
+							<view class="info_score marginB16">
+								豆瓣评分<text class="marginL16">{{newItem.score}}</text>
+							</view>
+							<view class="info_casts marginB16">
+								主演<text class="marginL16">{{newItem.casts}}</text>
+							</view>
+							<view class="info_casts marginB16">
+								类型<text class="marginL16">{{newItem.genres}}</text>
+							</view>
 						</view>
 					</view>
+					<view wx:if="{{item.list.length}}">加载完毕</view>
 				</scroll-view>
 			</swiper-item>
 		</swiper>

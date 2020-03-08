@@ -7,11 +7,18 @@
 
 .box_list {
   height: calc(100vh - 80rpx);
-  background: #f0f0f0;
+  background: #ffffff;
 }
 
 .list_item {
-  background: #ffffff;
-  width: calc(100% - 60rpx);
-  margin-left: 30rpx;
+  padding: 0 30rpx;
+}
+
+.item_picture {
+  width: 26vw;
+  height: 32vw;
+}
+
+.item_info view text {
+  /* margin-left: 20rpx; */
 }

@@ -6,7 +6,7 @@ import { secondMinuteFormat } from '../../utils/utils';
 Page({
   data: {
     start: 0,
-    count: 30,
+    count: 20,
     current: 0,
     is_open: false,
     category_list: [],
@@ -27,6 +27,7 @@ Page({
   },
 
   fetchPictureList: function (cid) {
+    wx.showLoading({ title: '加载中' })
     const { start, count, picture_list } = this.data;
     const params = `c=WallPaper&a=getAppsByCategory&cid=${cid}&start=${start}&count=${count}`;
     post('Wallpaper360/index', params, (res) => {
@@ -35,11 +36,11 @@ Page({
         title: item.tag.replace(/_/g, '').replace(/category/g, '').replace(/全部/g, ''),
       }))
       picture_list.map(item => {
-        if (item.id === data[0].class_id) {
+        if (data[0].class_id && data[0].class_id === item.id) {
           item.list = [...item.list, ...data];
         }
       });
-      this.setData({ picture_list });
+      this.setData({ picture_list }, () => wx.hideLoading());
     })
   },
 
@@ -54,10 +55,12 @@ Page({
 
   handleSelect: function (event) {
     const { picture_list } = this.data;
-    const { dataset: { index } } = event.currentTarget;
+    const { dataset: { index, info } } = event.currentTarget;
     this.setData({ current: index }, () => {
       this.handleHideBox();
-      this.fetchPictureList(picture_list[index].id);
+      const currentInfo = picture_list.find(item => item.id === info.id);
+      const { list = [] } = currentInfo;
+      if (!list.length) this.fetchPictureList(picture_list[index].id);
     });
   },
 

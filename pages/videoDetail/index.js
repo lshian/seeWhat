@@ -19,7 +19,6 @@ Page({
     post('Kaiyan/detail', id, (res) => { // 获取视频详情
       res.duration = secondMinuteFormat(res.duration);
       this.setData({ detail: res });
-      console.log(res);
     });
   },
 

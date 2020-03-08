@@ -15,13 +15,13 @@
 					<view class="video_label disFlex posRel justCSB">
 						<view>
 							<view class="info_title fontS32 fontwb marginB6">{{detail.title}}</view>
-							<view class="info_tag fontS24 colcccccc marginB12">
+							<view class="info_tag fontS24 colf0f0f0 marginB12">
 								#{{detail.category}} / {{detail.duration}}
 							</view>
 						</view>
 						<button open-type='share' data-info="{{detail}}" class="icon iconfont iconIcon_share posAbs fontS36 col999999" />
 					</view>
-					<view class="info_introduce fontS26 colcccccc">{{detail.description}}</view>
+					<view class="info_introduce fontS26 colf0f0f0">{{detail.description}}</view>
 				</view>
 				<icon class="subsection_b lux_w100" />
 				<view class="video_author lux_w100 disFlex">
@@ -56,7 +56,7 @@
 						<view class="item_info lux_w100 posRel item_info_vice marginL16">
 							<view class="item_info_label posRel item_info_label_vice}}">
 								<text class="fontS30 lux_w100 disblok fontwb textHide2">{{item.title}}</text>
-								<text class="item_tag posAbs fontS26 col999999">{{item.author_title}}</text>
+								<text class="item_tag posAbs fontS26 colf0f0f0">{{item.author_title}}</text>
 								<text class="item_tagCol item_tag fontS20 posAbs">{{item.duration}}</text>
 							</view>
 						</view>
