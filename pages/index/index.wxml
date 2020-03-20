@@ -60,12 +60,12 @@
 		</view>
 	</view>
 	<icon class="subsection_b marginB42" />
-	<view class="home_movies lux_w100 paddLR30 marginB30">
+	<view class="home_movies lux_w100 paddLR30 marginB30" wx:if="{{movie_list.length}}">
 		<view class="fontS36 lineHei36 fontwb marginB24 disFlex justCSB">
 			正在热映
 			<view
 				class="fontwNor fontS30 disFlex col0279fb"
-				data-path="movieDetail"
+				data-path="movieInfo"
 				bindtap="handleRouter"
 			>
 				查看更多
@@ -101,7 +101,7 @@
 		</scroll-view>
 	</view>
 	<icon class="subsection_b marginB42" />
-	<view class="home_videos lux_w100 paddLR30 marginB16">
+	<view class="home_videos lux_w100 paddLR30 marginB16" wx:if="{{video_list.length}}">
 		<view class="fontS36 lineHei36 fontwb marginB24 disFlex justCSB">
 			精选短视频
 			<view class="fontwNor fontS30 disFlex col0279fb">
@@ -145,7 +145,7 @@
 		</view>
 	</view>
 	<icon class="subsection_b marginB42" />
-	<view class="home_wallpaper lux_w100 paddLR30 marginB30">
+	<view class="home_wallpaper lux_w100 paddLR30 marginB30" wx:if="{{wallpaper_list.length}}">
 		<view class="fontS36 lineHei36 fontwb marginB24 disFlex justCSB">图片壁纸</view>
 		<view class="wallpaper_box lux_w100 overHid borderRad20">
 			<view class="wallpaper_item overHid {{item.type === 1 && 'wallpaper_item_vice'}}" wx:for="{{wallpaper_list}}" wx:key="{{index}}">
@@ -178,7 +178,7 @@
 		</view>
 	</view>
 	<icon class="subsection_b marginB42" />
-	<view class="home_news lux_w100 paddLR30 marginB30">
+	<view class="home_news lux_w100 paddLR30 marginB30" wx:if="{{news_list.length}}">
 		<view class="fontS36 lineHei36 fontwb marginB24 disFlex justCSB">
 			新闻头条
 			<view class="fontwNor fontS30 disFlex col0279fb">

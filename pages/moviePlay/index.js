@@ -40,8 +40,8 @@ Page({
         directors: detail.directors,
         casts: detail.casts.map(item => ({
           id: item.id,
-          name: item.name || '--',
-          name_en: item.name_en || '--',
+          name: item.name,
+          name_en: item.name_en,
           image: item.avatars.small || item.avatars.medium || item.avatars.large,
         })),
         bloopers: detail.bloopers.map(item => ({

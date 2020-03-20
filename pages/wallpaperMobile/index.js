@@ -1,6 +1,7 @@
 //index.js
 
 import { post } from '../../utils/request';
+import api from '../../apis';
 
 const initData = {
   navbar: [
@@ -19,6 +20,7 @@ const initData = {
 Page({
   data: { ...initData },
   onLoad: function () {
+    console.log(api.wallpapermobile_hot_new)
     this.fetchNew();
     this.fetchHot();
     this.fetchCategory();
@@ -37,7 +39,7 @@ Page({
   // },
 
   fetchCategory: function () {
-    post('WallpaperMobile/category', null, (res) => { // 获取壁纸分类
+    post(api.wallpapermobile_category, null, (res) => { // 获取壁纸分类
       const { category } = res.res;
       this.setData({ category });
     });
@@ -47,7 +49,7 @@ Page({
     wx.showLoading({ title: '加载中' })
     const { new_info, limit } = this.data;
     const params = `order=new&skip=${new_info.skip}&limit=${limit}`;
-    post('WallpaperMobile/hot_new', params, (res) => { // 获取最新壁纸
+    post(api.wallpapermobile_hot_new, params, (res) => { // 获取最新壁纸
       const { vertical } = res.res;
       this.setData({
         new_info: {
@@ -62,7 +64,7 @@ Page({
     wx.showLoading({ title: '加载中' })
     const { hot_info, limit } = this.data;
     const params = `order=hot&skip=${hot_info.skip}&limit=${limit}`;
-    post('WallpaperMobile/hot_new', params, (res) => { // 获取最热壁纸
+    post(api.wallpapermobile_hot_new, params, (res) => { // 获取最热壁纸
       const { vertical } = res.res;
       this.setData({
         hot_info: {

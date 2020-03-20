@@ -1,6 +1,7 @@
 //index.js
 
 import { post } from '../../utils/request';
+import api from '../../apis';
 import { secondMinuteFormat } from '../../utils/utils';
 
 Page({
@@ -16,7 +17,7 @@ Page({
   },
 
   fetchDetail: function (id) {
-    post('Kaiyan/detail', id, (res) => { // 获取视频详情
+    post(api.kaiyan_detail, id, (res) => { // 获取视频详情
       res.duration = secondMinuteFormat(res.duration);
       this.setData({ detail: res });
     });
@@ -24,7 +25,7 @@ Page({
 
   fetchRecommend: function (id) {
     const params = `${id}?num=10`;
-    post('Kaiyan/related', params, (res) => { // 获取推荐视频
+    post(api.kaiyan_related, params, (res) => { // 获取推荐视频
       const { videoList } = res;
       const recommend = videoList.map(item => ({
         id: item.id,

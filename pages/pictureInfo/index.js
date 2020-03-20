@@ -1,6 +1,7 @@
 //index.js
 
 import { post } from '../../utils/request';
+import api from '../../apis';
 import { secondMinuteFormat } from '../../utils/utils';
 
 Page({
@@ -18,7 +19,7 @@ Page({
 
   fetchPictureInfo: function () {
     const params = 'c=WallPaperAndroid&a=getAllCategories';
-    post('Wallpaper360/index', params, (res) => {
+    post(api.wallpaper360_index, params, (res) => {
       const picture_list = res.data.map((item) => ({ ...item, list: [], start: 0 }));
       this.setData({ picture_list }, () => {
         this.fetchPictureList(res.data[0].id);
@@ -30,7 +31,7 @@ Page({
     wx.showLoading({ title: '加载中' })
     const { start, count, picture_list } = this.data;
     const params = `c=WallPaper&a=getAppsByCategory&cid=${cid}&start=${start}&count=${count}`;
-    post('Wallpaper360/index', params, (res) => {
+    post(api.wallpaper360_index, params, (res) => {
       const data = res.data.map(item => ({
         ...item,
         title: item.tag.replace(/_/g, '').replace(/category/g, '').replace(/全部/g, ''),

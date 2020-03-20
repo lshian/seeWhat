@@ -1,6 +1,7 @@
 //index.js
 
 import { post } from '../../utils/request';
+import api from '../../apis';
 
 Page({
   data: {
@@ -19,7 +20,7 @@ Page({
     wx.showLoading({ title: '加载中' })
     const { skip, limit, fetchId } = this.data;
     const params = `${fetchId}/vertical?skip=${skip}&limit=${limit}`;
-    post('Wallpapermobile/paper_list', params, (res) => {
+    post(api.wallpapermobile_paper_list, params, (res) => {
       const { vertical } = res.res;
       const { paper_list } = this.data;
       this.setData({ paper_list: [...paper_list, ...vertical] }, () => wx.hideLoading());

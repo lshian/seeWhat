@@ -131,6 +131,10 @@
   height: 60rpx;
 }
 
+.height120 {
+  height: 120rpx;
+}
+
 .fontS20 {
   font-size: 20rpx;
 }
@@ -215,6 +219,10 @@
   padding-top: 16rpx;
 }
 
+.paddT20 {
+  padding-top: 20rpx;
+}
+
 .paddT24 {
   padding-top: 24rpx;
 }
@@ -222,8 +230,16 @@
 .paddT30 {
   padding-top: 30rpx;
 }
+.paddT36 {
+  padding-top: 36rpx;
+}
+
 .paddT40 {
   padding-top: 40rpx;
+}
+
+.paddT48 {
+  padding-top: 48rpx;
 }
 
 
@@ -247,6 +263,14 @@
   margin-top: 12rpx;
 }
 
+.marginT16 {
+  margin-top: 16rpx;
+}
+
+.marginT30 {
+  margin-top: 30rpx;
+}
+
 .marginL12 {
   margin-left: 12rpx;
 }
@@ -257,10 +281,6 @@
 
 .marginR16 {
   margin-right: 16rpx;
-}
-
-.marginT30 {
-  margin-top: 30rpx;
 }
 
 .marginB2 {

@@ -10,6 +10,7 @@
 .subsection_b {
   height: 1rpx;
   background: #666666;
+  display: block;
 }
 
 .video_label button {

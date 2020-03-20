@@ -24,7 +24,7 @@
 					<view class="info_introduce fontS26 colf0f0f0">{{detail.description}}</view>
 				</view>
 				<icon class="subsection_b lux_w100" />
-				<view class="video_author lux_w100 disFlex">
+				<view class="video_author lux_w100 disFlex paddTB24">
 					<view class="author_image overHid">
 						<image src="{{detail.author.icon}}" class="lux_w100 lux_h100" />
 					</view>

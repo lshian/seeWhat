@@ -1,6 +1,7 @@
 // pages/videoList/index.js
 
 import { post } from '../../utils/request';
+import api from '../../apis';
 import { secondMinuteFormat } from '../../utils/utils';
 
 Page({
@@ -27,7 +28,7 @@ Page({
     wx.showLoading({ title: '加载中' })
     const { num, start, video_list, query } = this.data;
     const params = `num=${num}&start=${start}&query=${query}`
-    post('Kaiyan/search', params, (res) => {
+    post(api.kaiyan_search, params, (res) => {
       const { itemList } = res;
       const list = [];
       itemList.map(item => {

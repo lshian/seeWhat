@@ -5,6 +5,11 @@
   border-bottom: 2rpx solid #eeeeee;
 }
 
+.box_title .active {
+  color: #0279fb;
+  border-bottom: 2rpx solid #0279fb;
+}
+
 .box_list {
   height: calc(100vh - 80rpx);
   background: #ffffff;

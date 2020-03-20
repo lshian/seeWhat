@@ -3,6 +3,8 @@
     "pages/index/index",
     "pages/search/index",
     "pages/movieInfo/index",
+    "pages/movieDetail/index",
+    "pages/moviePlay/index",
     "pages/videoList/index",
     "pages/videoDetail/index",
     "pages/userInfo/index",
@@ -10,8 +12,8 @@
     "pages/newsDetail/index",
     "pages/wallpaperMobile/index",
     "pages/wallpaperMobileList/index",    
-    "pages/movieDetail/index",
-    "pages/pictureInfo/index"
+    "pages/pictureInfo/index",
+    "pages/webView/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",

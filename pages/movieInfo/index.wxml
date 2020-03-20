@@ -3,27 +3,40 @@
 		<view
 			wx:for="{{playInfoList}}"
 			wx:key="{{index}}"
-			class="title_item marginR16"
+			class="title_item marginR16 {{current === index && 'active'}}"
+			data-index="{{index}}"
+			bindtap="handleChangeTitle"
 		>{{item.title}}</view>
 	</view>
 	<scroll-view class="box_list lux_w100">
-		<swiper class="lux_w100 lux_h100">
+		<swiper
+			current="{{current}}"
+			class="lux_w100 lux_h100"
+			bindchange="handleChangeMovieType"
+		>
 			<swiper-item
 				wx:for="{{playInfoList}}"
 				wx:key="{{index}}"
 				class="lux_w100"
 			>
-				<scroll-view scroll-y class="lux_w100 lux_h100 disFlex flexWrap">
+				<scroll-view
+					scroll-y
+					class="lux_w100 lux_h100 disFlex flexWrap"
+					lower-threshold="200"
+		 			bindscrolltolower="additionalMovies"
+				>
 					<view
 						class="list_item overHid borderRad20 marginT30 disFlex flexWrap"
 						wx:for="{{item.list}}"
 						wx:for-item="newItem"
 						wx:key="{{newItem}}"
+						data-id="{{newItem.id}}"
+						bindtap="handleRouter"
 					>
 						<view class="item_picture overHid borderRad10">
 							<image mode="widthFix" class="lux_w100" src="{{newItem.images}}" />
 						</view>
-						<view class="item_info col999999 fontS24 paddLR30 paddTB16 flex1">
+						<view class="item_info col999999 fontS24 paddLR30 flex1">
 							<view class="info_title fontS32 fontwb lineHei54 col333333 marginB16">
 								{{newItem.title}}({{newItem.year}})
 							</view>

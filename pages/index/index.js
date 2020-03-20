@@ -3,6 +3,7 @@
 const app = getApp()
 
 import { post } from '../../utils/request';
+import api from '../../apis';
 import { secondMinuteFormat, getDateAndWeek } from '../../utils/utils';
 
 const initData = {
@@ -41,17 +42,6 @@ Page({
     }
   },
 
-  onShareAppMessage: function (event) { // 分享
-    const { info } = event.target.dataset;
-    return {
-      title: info.title,
-      path: `/pages/index/index?info=${info.id}&type=video`,
-      success: (res) => {
-        this.setData({ showDialog: true });
-      }
-    }
-  },
-
   onPullDownRefresh: function() {
     setTimeout(() => {
       this.setData({ current_index: 0, video_list: [] }, () => {
@@ -66,7 +56,7 @@ Page({
   },
   
   fetchCarousel: function() { // 获取轮播
-    post('Kaiyan/feed', null, (res) => { // 获取每日推荐视频
+    post(api.kaiyan_feed, null, (res) => { // 获取每日推荐视频
       const { issueList } = res;
       const itemList = issueList[0] ? issueList[0].itemList : [];
       const carouselList = [];
@@ -89,7 +79,7 @@ Page({
       const count = 10;
       const query = 'c=WallPaper&a=getAppsByOrder&order=create_time'
       const params = `${query}&start=${start}&count=${count}&name=wallpaper360`;
-      post('Wallpaper360/index', params, (res) => { // 获取每日推荐图片
+      post(api.wallpaper360_index, params, (res) => { // 获取每日推荐图片
         const Carousel_img = [];
         res.data.map(item => {
           Carousel_img.push({
@@ -109,7 +99,7 @@ Page({
     const start = 0;
     const count = 10;
     const params = `start=${start}&count=${count}&apikey=0df993c66c0c636e29ecbb5344252a4a`;
-    post('Douban/theaters', params, (res) => {
+    post(api.douban_theaters, params, (res) => {
       const movie_list = res.subjects.map(item => ({
         id: item.id,
         images: item.images.large || item.images.medium || item.images.small,
@@ -125,7 +115,7 @@ Page({
   fetchVideo: function(id) { // 根据id获取相关视频
     const params = `${id}?num=36`
     const total_video_list = [];
-    post('Kaiyan/related', params, (res) => {
+    post(api.kaiyan_related, params, (res) => {
       res.videoList.map(item => {
         total_video_list.push({
           id: item.id,
@@ -177,7 +167,7 @@ Page({
    */
   fetPicClass: function (random) {
     const params = 'c=WallPaperAndroid&a=getAllCategories';
-    return post('Wallpaper360/index', params, (res) => {
+    return post(api.wallpaper360_index, params, (res) => {
       this.setData({
         pic_class_list: res.data,
       }, () => this.fetchWallpaper(res.data[random].id));
@@ -189,11 +179,11 @@ Page({
     const limit = 20;
     const paramsMobile = `order=hot&skip=${skip}&limit=${limit}`;
     const params360 = `c=WallPaper&a=getAppsByCategory&cid=${id}&start=${skip}&count=${limit}`
-    post('Wallpapermobile/hot_new', paramsMobile, (res) => {
+    post(api.wallpapermobile_hot_new, paramsMobile, (res) => {
       const { vertical } = res.res;
       const start = Math.floor(Math.random() * 10);
       const end = Math.floor(Math.random() * (20 - 10) + 10);
-      post('Wallpaper360/index', params360, (res) => {
+      post(api.wallpaper360_index, params360, (res) => {
         const { data } = res;
         const appendList = [
           { url: vertical[start].img, type: 1 },
@@ -215,7 +205,7 @@ Page({
     const page = 1;
     const count = 10;
     const params = `/newsList?channelId=${channelId}&maxResult=${count}&page=${page}`;
-    post('Toutiao/newsInfo', params, (res) => {
+    post(api.toutiao_newsInfo, params, (res) => {
       const list = res.showapi_res_body ? res.showapi_res_body.pagebean.contentlist : [];
       const news_list = list.map(item => {
         return {

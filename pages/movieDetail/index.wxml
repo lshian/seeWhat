@@ -1,5 +1,93 @@
-<view class="container">
-	<view>
+<view class="container lux_w100v" wx:if="{{detailInfo.id}}">
+	<view class="video_info paddLR30 lux_w100 disFlex flexWrap justCSB paddT24">
+		<view class="info_text flex1">
+			<text class="info_title fontS36 fontwb col333333">{{detailInfo.title}}</text>
+			<view class="info_score disFlex">
+				<view wx:if="{{detailInfo.star[0]}}" class="star_star disFlex">
+					<image
+						wx:for="{{detailInfo.star[0]}}"
+						wx:key="{{index}}"
+						mode="widthFix"
+						src="../../public/images/star.png"
+						class="star_icon"
+					/>
+					<image
+						wx:if="{{detailInfo.star.length > 1}}"
+						mode="widthFix"
+						src="../../public/images/star_half.png"
+						class="star_icon"
+					/>
+				</view>
+				<text class="fontS28 colf43244">{{detailInfo.score}}</text>
+			</view>
+			<view class="info_label fontS26 col666666">
+				类型：{{detailInfo.genres}}
+			</view>
+			<view class="info_label fontS26 col666666">
+				语言：{{detailInfo.languages}}
+			</view>
+			<view class="info_label fontS26 col666666">
+				片长：{{detailInfo.durations}}
+			</view>
+			<view class="info_label fontS26 col666666">
+				上映时间：{{detailInfo.pubdates}}
+			</view>
+		</view>
+		<view class="info_pic">
+			<image mode="widthFix" src="{{detailInfo.image}}" class="lux_w100 borderRad20" />
+		</view>
+	</view>
+	<view class="video_desc paddLR30 paddT36">
+		<view class="video_title lux_w100 fontS32">简介</view>
+		<view class="desc_content paddT20 lux_w100 fontS26 col666666">
+			{{detailInfo.summary}}
+		</view>
+	</view>
+	<view wx:if="{{detailInfo.casts.length}}" class="video_actors lux_w100 paddLR30 paddT36">
+		<view class="video_title lux_w100 fontS32">演职员</view>
+		<view class="actors_list paddT24" style="white-space: nowrap">
+			<scroll-view class="actors_list_scroll lux_w100" scroll-x>
+				<view class="actors_item" wx:for="{{detailInfo.casts}}">
+					<view class="item_portrait overHid">
+						<image mode="widthFix" src="{{item.image}}" class="lux_w100 lux_h100" />
+					</view>
+					<view class="item_info lux_w100 marginT16">
+						<view class="info_name textHide fontS26 col666666">{{item.name}}</view>
+						<view class="info_name textHide fontS24 col999999">{{item.name_en}}</view>
+					</view>
+				</view>
+			</scroll-view>
+		</view>
+	</view>
+	<view wx:if="{{detailInfo.trailers.length}}" class="video_play lux_w100 paddLR30 paddT36">
+		<view class="video_title lux_w100 fontS32">视频剧照</view>
+		<view class="play_list paddT24" style="white-space: nowrap">
+			<scroll-view class="play_list_scroll lux_w100" scroll-x>
+				<view class="play_item" wx:for="{{detailInfo.trailers}}">
+					<view class="item_portrait posRel disFlex itemAliC justCC">
+						<icon class="icon iconfont iconIcon_play posAbs fontS24 colffffff disFlex itemAliC justCC" />
+						<image mode="widthFix" src="{{item.iamge}}" class="lux_w100 lux_h100 borderRad10" />
+					</view>
+					<view class="info_title textHide fontS26 col666666">{{item.title}}</view>
+				</view>
+			</scroll-view>
+		</view>
+	</view>
+	<view wx:if="{{detailInfo.bloopers.length}}" class="video_play lux_w100 paddLR30 paddT36">
+		<view class="video_title lux_w100 fontS32">花絮</view>
+		<view class="play_list paddT24" style="white-space: nowrap">
+			<scroll-view class="play_list_scroll lux_w100" scroll-x>
+				<view class="play_item" wx:for="{{detailInfo.bloopers}}">
+					<view class="item_portrait posRel disFlex itemAliC justCC">
+						<icon class="icon iconfont iconIcon_play posAbs fontS24 colffffff disFlex itemAliC justCC" />
+						<image mode="widthFix" src="{{item.iamge}}" class="lux_w100 lux_h100 borderRad10" />
+					</view>
+					<view class="info_title textHide fontS26 col666666">{{item.title}}</view>
+				</view>
+			</scroll-view>
+		</view>
+	</view>
+	<view class="lux_w100 height120 disFlex itemAliC justCC">
+		<text class="fontS24 col999999">更多详情请前往豆瓣官网进行查看</text>
 	</view>
 </view>
-

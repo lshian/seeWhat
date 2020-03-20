@@ -23,4 +23,5 @@
 .subsection_b {
   height: 1rpx;
   background: #f0f0f0;
+  display: block;
 }

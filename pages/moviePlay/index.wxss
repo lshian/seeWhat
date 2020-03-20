@@ -11,16 +11,13 @@
   padding: 12rpx 0;
 }
 
-.info_text .info_score .star_star {
-  margin-right: 16rpx;
-}
-
 .info_text .info_score .star_star image {
   width: 24rpx;
   margin-right: 8rpx;
 }
 
 .info_text .info_score text {
+  margin-left: 16rpx;
   line-height: 1;
 }
 

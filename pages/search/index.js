@@ -1,6 +1,7 @@
 // pages/search/index.js
 
 import { post } from '../../utils/request';
+import api from '../../apis';
 
 Page({
 
@@ -26,7 +27,7 @@ Page({
   },
 
   fetchHotSearchKeys: function () {
-    post('Kaiyan/hot', null, (res) => {
+    post(api.kaiyan_hot, null, (res) => {
       this.setData({ keys_list: res });
     })
   },
