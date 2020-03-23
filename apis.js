@@ -21,6 +21,6 @@ const apis = {
   douban_detail: 'Douban/detail', // 电影详情
 
   toutiao_newsClass: 'Toutiao/newsClass', // 头条分类
-  Toutiao_newsInfo: 'Toutiao/newsInfo', // 头条列表
+  toutiao_newsInfo: 'Toutiao/newsInfo', // 头条列表
 }
 export default apis;

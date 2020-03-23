@@ -1,64 +1,14 @@
-/**index.wxss**/
-.info_text {
-  padding-right: 30rpx;
+
+.video_play video {
+  height: 500rpx;
 }
 
-.info_text .info_title {
-  line-height: 1;
-}
-
-.info_text .info_score {
-  padding: 12rpx 0;
-}
-
-.info_text .info_score .star_star image {
-  width: 24rpx;
-  margin-right: 8rpx;
-}
-
-.info_text .info_score text {
-  margin-left: 16rpx;
-  line-height: 1;
-}
-
-.info_pic {
-  width: 24vw;
-  /* height: 32vw; */
-}
-
-.info_text .info_label {
-  margin-top: 6rpx;
-}
-
-.video_desc .desc_content {
-  line-height: 42rpx;
-}
-
-.video_actors .actors_item {
-  display: inline-block;
-  margin-right: 60rpx;
-  width: 100rpx;
-}
-
-.video_actors .actors_item .item_portrait {
-  width: 100rpx;
-  height: 100rpx;
-  border-radius: 50%;
-}
-
-.video_actors .actors_item .item_info {
-  text-align: center;
-}
-
-.video_play .play_item {
+.play_list_scroll .play_item {
   display: inline-block;
   margin-right: 16rpx;
-  width: 300rpx;
+  width: 320rpx;
 }
 
-.video_play .play_item .item_portrait icon {
-  width: 60rpx;
-  height: 60rpx;
-  border-radius: 50%;
-  background: rgba(0,0,0,0.6);
+.play_list_scroll .play_item:first-child {
+  margin-left: 16rpx;
 }

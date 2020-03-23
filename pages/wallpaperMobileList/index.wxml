@@ -4,7 +4,8 @@
 		lower-threshold="200"
 		bindscrolltolower="addPaperList"
 		class="paper_box disFlex lux_w100v lux_h100v"
-	><view class="box_view">
+	>
+		<view class="box_view">
 			<view
 			 class="item_view lux_w100 disFlex"
 			 wx:for="{{paper_list}}"

@@ -1,4 +1,24 @@
 <view class="container lux_w100v" wx:if="{{detailInfo.id}}">
+	<view wx:if="{{showPlay}}" class="video_play lux_w100 lux_h100v">
+		<icon
+			class="icon iconfont iconIcon_close"
+			bindtap="handleHidePlay"
+		/>
+    <video
+      id="myVideo"
+      class="lux_w100"
+      src="{{current.url}}"
+      poster="{{current.image}}"
+      title="{{current.title}}"
+			autoplay
+      show-mute-btn
+      vslide-gesture
+			enable-play-gesture
+			play-btn-position="center"
+			bindended="changePlayInfo"
+    >
+    </video>
+  </view>
 	<view class="video_info paddLR30 lux_w100 disFlex flexWrap justCSB paddT24">
 		<view class="info_text flex1">
 			<text class="info_title fontS36 fontwb col333333">{{detailInfo.title}}</text>
@@ -47,7 +67,7 @@
 		<view class="video_title lux_w100 fontS32">演职员</view>
 		<view class="actors_list paddT24" style="white-space: nowrap">
 			<scroll-view class="actors_list_scroll lux_w100" scroll-x>
-				<view class="actors_item" wx:for="{{detailInfo.casts}}">
+				<view class="actors_item" wx:for="{{detailInfo.casts}}" wx:key="{{index}}">
 					<view class="item_portrait overHid">
 						<image mode="widthFix" src="{{item.image}}" class="lux_w100 lux_h100" />
 					</view>
@@ -59,11 +79,18 @@
 			</scroll-view>
 		</view>
 	</view>
-	<view wx:if="{{detailInfo.trailers.length}}" class="video_play lux_w100 paddLR30 paddT36">
-		<view class="video_title lux_w100 fontS32">视频剧照</view>
+	<view wx:if="{{detailInfo.videos.length}}" class="video_list lux_w100 paddLR30 paddT36">
+		<view class="video_title lux_w100 fontS32">视频&花絮</view>
 		<view class="play_list paddT24" style="white-space: nowrap">
 			<scroll-view class="play_list_scroll lux_w100" scroll-x>
-				<view class="play_item" wx:for="{{detailInfo.trailers}}">
+				<view
+					class="play_item"
+					wx:for="{{detailInfo.videos}}"
+					wx:key="{{index}}"
+					data-info="{{detailInfo.videos}}"
+					data-index="{{index}}"
+					bindtap="handleShowPlay"
+				>
 					<view class="item_portrait posRel disFlex itemAliC justCC">
 						<icon class="icon iconfont iconIcon_play posAbs fontS24 colffffff disFlex itemAliC justCC" />
 						<image mode="widthFix" src="{{item.iamge}}" class="lux_w100 lux_h100 borderRad10" />
@@ -73,18 +100,71 @@
 			</scroll-view>
 		</view>
 	</view>
-	<view wx:if="{{detailInfo.bloopers.length}}" class="video_play lux_w100 paddLR30 paddT36">
-		<view class="video_title lux_w100 fontS32">花絮</view>
-		<view class="play_list paddT24" style="white-space: nowrap">
-			<scroll-view class="play_list_scroll lux_w100" scroll-x>
-				<view class="play_item" wx:for="{{detailInfo.bloopers}}">
-					<view class="item_portrait posRel disFlex itemAliC justCC">
-						<icon class="icon iconfont iconIcon_play posAbs fontS24 colffffff disFlex itemAliC justCC" />
-						<image mode="widthFix" src="{{item.iamge}}" class="lux_w100 lux_h100 borderRad10" />
+	<view wx:if="{{detailInfo.popular_comments.length}}" class="video_comments lux_w100 paddLR30 paddT36">
+		<view class="video_title lux_w100 fontS32">评论</view>
+		<view class="comments_list paddT24">
+			<view
+				class="comments_item lux_w100 marginB24"
+				wx:for="{{detailInfo.popular_comments}}"
+				wx:key="{{index}}"
+			>
+				<view class="item_author lux_w100 disFlex">
+					<view class="author_avatar">
+						<image src="{{item.author.avatar}}" mode="widthFix" class="lux_w100" />
 					</view>
-					<view class="info_title textHide fontS26 col666666">{{item.title}}</view>
+					<view class="author_info">
+						<view class="author_name fontS28 col333333">{{item.author.name}}</view>
+						<view class="author_score marginB12">
+							<image
+								wx:for="{{item.rating.value}}"
+								wx:key="{{index}}"
+								mode="widthFix"
+								src="../../public/images/star.png"
+								class="star_icon"
+							/>
+						</view>
+					</view>
 				</view>
-			</scroll-view>
+				<view class="item_content lux_w100 fontS26 col666666">{{item.content}}</view>
+				<view class="item_time fontS24 col999999 disFlex">{{item.created_at}}</view>
+			</view>
+		</view>
+	</view>
+	<view class="video_photo lux_w100 paddLR30 paddT36">
+		<view class="video_title lux_w100 fontS32">剧照</view>
+		<view class="photo_list paddT24 disFlex justCSB">
+			<view class="box_view">
+				<view
+				class="item_view lux_w100 disFlex"
+				wx:for="{{detailInfo.photos}}"
+				wx:key="{{index}}"
+				wx:if="{{index%2==0}}"
+				><image
+						src="{{item.thumb}}"
+						mode="widthFix"
+						lazy-load
+						class="lux_w100 borderRad10"
+						data-url="{{item.image}}"
+						bindtap="handleSeeImage"
+					/>
+				</view>
+			</view>
+			<view class="box_view">
+				<view
+				class="item_view lux_w100 disFlex"
+				wx:for="{{detailInfo.photos}}"
+				wx:key="{{index}}"
+				wx:if="{{index%2==1}}"
+				><image
+						src="{{item.thumb}}"
+						mode="widthFix"
+						lazy-load
+						class="lux_w100 borderRad10"
+						data-url="{{item.image}}"
+						bindtap="handleSeeImage"
+					/>
+				</view>
+			</view>
 		</view>
 	</view>
 	<view class="lux_w100 height120 disFlex itemAliC justCC">

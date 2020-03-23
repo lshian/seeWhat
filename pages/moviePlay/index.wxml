@@ -1,3 +1,31 @@
 <view class="container lux_w100v">
-	
+  <view class="video_play lux_w100">
+    <video
+      id="myVideo"
+      class="lux_w100"
+      src="{{current.url}}"
+      poster="{{current.image}}"
+      title="{{current.title}}"
+      show-mute-btn
+      enable-play-gesture
+      vslide-gesture
+    >
+    </video>
+  </view>
+  <view class="lux_w100 disFlex flexWrap">
+    <view
+      class="play_item"
+      wx:for="{{video_list}}"
+      wx:key="{{index}}"
+      data-info="{{detailInfo}}"
+      data-index="{{index}}"
+      bindtap="handleRouter"
+    >
+      <view class="item_portrait posRel disFlex itemAliC justCC">
+        <icon class="icon iconfont iconIcon_play posAbs fontS24 colffffff disFlex itemAliC justCC" />
+        <image mode="widthFix" src="{{item.iamge}}" class="lux_w100 lux_h100 borderRad10" />
+      </view>
+      <view class="info_title textHide fontS26 col666666">{{item.title}}</view>
+    </view>
+  </view>
 </view>

@@ -41,3 +41,15 @@ button::after {
   right: 30rpx;
   bottom: 0;
 }
+
+.load_end .end_main icon {
+  position: relative;
+  top: 18rpx;
+  width: 80rpx;
+  height: 2rpx;
+  background: #cccccc;
+}
+
+.load_end .end_main text {
+  margin: 0 12rpx;
+}

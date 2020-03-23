@@ -16,5 +16,12 @@
         src="{{item.url}}"
       />
     </view>
+    <view class="load_end disFlex justCC paddTB30">
+      <view class="end_main disFlex justSB fontS26 colcccccc">
+        <icon />
+        <text>加载完毕</text>
+        <icon />
+      </view>
+    </view>
   </view>
 </view>
