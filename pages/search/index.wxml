@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<view class="container lux_w100v lux_h100v">
+<view class="container lux_w100v lux_h100v marginT16">
 	<view class="search_box lux_w100 paddLR30 disFlex justCSB marginB42">
 		<view class="input_box lux_w100 disFlex backf0f0f0 height60 borderRad10">
 			<icon class="icon iconfont fontS20 colcccccc iconIcon_search disFlex itemAliC justCC fontS32" />
@@ -7,9 +7,16 @@
 			 value="{{key}}"
 			 class="search_box_input flex1 fontS28 lux_h100 lineHei60"
 			 auto-focus
+			 focus="{{focus}}"
 			 placeholder="请输入视频名称"
 			 confirm-type="search"
+			 bindinput="handleInput"
 			 bindconfirm="handleSearch"
+			/>
+			<icon
+				wx:if="{{showClear}}"
+				class="icon iconfont fontS20 colcccccc iconIcon_clear disFlex itemAliC justCC fontS32"
+				bindtap="handleClear"
 			/>
 		</view>
 		<view class="search_box_cancel fontS28 col999999 lineHei60" bindtap="handleGoBack">取消

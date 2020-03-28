@@ -51,7 +51,12 @@
 							</view>
 						</view>
 					</view>
-					<view wx:if="{{item.list.length}}">加载完毕</view>
+					<view
+						wx:if="{{item.isEnd}}"
+						class="lux_w100 height120 disFlex itemAliC justCC"
+					>
+						<text class="fontS24 col999999">更多影视咨询请前往豆瓣官网进行查看</text>
+					</view>
 				</scroll-view>
 			</swiper-item>
 		</swiper>

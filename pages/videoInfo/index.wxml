@@ -1,0 +1,129 @@
+<view class="container lux_w100">
+	<view class="header_search lux_w100 paddLR30 marginT16">
+		<view class="search_main lux_w100 lux_h100 paddLR24 disFlex" bindtap="handleSearch">
+			<icon class="icon iconfont iconIcon_search fontS30 col999999 marginR16" />
+			<text class="fontS26 col999999">搜索视频名称</text>
+		</view>
+	</view>
+	<view class="video_box lux_w100 marginB30" wx:if="{{recommend_list.length}}">
+		<view class="video_title paddTB24 paddLR30 disFlex justCSB fontS42 fontwb">
+			每日开眼精选
+			<view
+				class="fontwNor fontS30 lineHei54 disFlex col0279fb"
+				bindtap="handleRouterHistory"
+			>
+				查看往期
+				<icon class="disFlex icon iconfont iconIcon_right" />
+			</view>
+		</view>
+		<swiper
+			autoplay
+			circular
+			current="{{current_index}}"
+			class="video_recommend lux_w100 posRel"
+			style="height: {{imgShowHeight}}px"
+			>
+				<swiper-item
+					wx:for="{{recommend_list}}"
+					wx:key="{{index}}"
+					class="recommend_item paddLR30"
+					data-info="{{item.id}}"
+					bindtap="handleRouterDetail"
+				>
+					<view class="item_image">
+						<image src="{{item.url}}" mode="widthFix" class="lux_w100 borderRad20" bindload="imageLoad" />
+					</view>
+					<view class="item_info marginT6 disFlex flexWrap">
+						<image src="{{item.author_icon}}" />
+						<view class="item_text flex1 paddL24 textHide">
+							<text class="item_text_title lux_w100 fontS28 fontwb col333333">{{item.title}}</text>
+							<view class="item_text_title fontS24 col999999">
+								{{item.author_title}}
+								<text class="text_tag">{{item.duration}}</text>
+							</view>
+						</view>
+					</view>
+				</swiper-item>
+			</swiper>
+	</view>
+
+	<view class="video_category lux_w100 marginB30" wx:if="{{category_list.length}}">
+		<view class="video_title paddTB24 paddLR30 disFlex justCSB fontS36 fontwb">热门分类</view>
+		<view class="category_list lux_w100">
+			<scroll-view scroll-x class="category_box lux_w100">
+				<view
+					class="category_item marginR12"
+					wx:for="{{category_list}}"
+					wx:key="{{index}}"
+				>
+					<view
+						class="item_content lux_w100 posRel marginB12"
+						data-id="{{item[0].id}}"
+						bindtap="handleRouterList"
+					>
+						<view class="item_info posRel lux_w100 lux_h100 disFlex itemAliC justCC fontS30">
+							# {{item[0].name}}
+						</view>
+						<view class="item_image lux_w100 posAbs">
+							<image src="{{item[0].bgPicture}}" mode="widthFix" class="lux_w100 borderRad10" />
+						</view>
+					</view>
+					<view
+						class="item_content lux_w100 posRel marginB12"
+						data-id="{{item[1].id}}"
+						bindtap="handleRouterList"
+					>
+						<view class="item_info posRel lux_w100 lux_h100 disFlex itemAliC justCC fontS30">
+							# {{item[1].name}}
+						</view>
+						<view class="item_image lux_w100 posAbs">
+							<image src="{{item[1].bgPicture}}" mode="widthFix" class="lux_w100 borderRad10" />
+						</view>
+					</view>
+				</view>
+			</scroll-view>
+		</view>
+	</view>
+
+	<view class="video_rank lux_w100 marginB30" wx:if="{{ranking_list.length}}">
+		<view class="video_title paddTB24 lineHei36 paddLR30 disFlex justCSB fontS36 fontwb">
+			本周榜单
+			<view
+				class="fontwNor fontS30 disFlex col0279fb"
+				bindtap="handleRouterRank"
+			>
+				查看更多
+				<icon class="disFlex icon iconfont iconIcon_right" />
+			</view>
+		</view>
+		<view class="lux_w100">
+			<view
+				class="videos_item lux_w100 marginB24 disFlex paddLR30"
+				wx:for="{{ranking_list}}"
+				wx:key="{{index}}"
+				data-info="{{item.id}}"
+				bindtap="handleRouterDetail"
+				>
+					<view class="item_image lux_w100 borderRad20 overHid item_image_vice">
+						<image
+							mode="aspectFill"
+							lazy-load
+							class="lux_w100 lux_h100"
+							src="{{item.url}}"
+						/>
+					</view>
+					<view class="item_info lux_w100 posRel flex1 item_info_vice marginL16">
+						<view class="item_info_label posRel item_info_label_vice}}">
+							<text class="fontS30 lux_w100 disblok fontwb textHide2">{{item.title}}</text>
+							<text class="item_tag posAbs fontS26 col999999">{{item.author_title}}</text>
+							<text class="item_tagCol item_tag fontS20 posAbs">{{item.duration}}</text>
+						</view>
+					</view>
+				</view>
+		</view>
+	</view>
+	<view class="lux_w100 height120 disFlex itemAliC justCC">
+		<text class="fontS24 col999999">更多视频信息请前往开眼APP查看</text>
+	</view>
+</view>
+

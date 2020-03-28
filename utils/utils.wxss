@@ -259,6 +259,10 @@
   padding-left: 24rpx;
 }
 
+.marginT6 {
+  margin-top: 6rpx;
+}
+
 .marginT12 {
   margin-top: 12rpx;
 }
@@ -271,12 +275,20 @@
   margin-top: 30rpx;
 }
 
+.marginT48 {
+  margin-top: 48rpx;
+}
+
 .marginL12 {
   margin-left: 12rpx;
 }
 
 .marginL16 {
   margin-left: 16rpx;
+}
+
+.marginR12 {
+  margin-right: 12rpx;
 }
 
 .marginR16 {
@@ -315,6 +327,10 @@
   margin-bottom: 42rpx;
 }
 
+.marginB48 {
+  margin-bottom: 48rpx;
+}
+
 .marginB60 {
   margin-bottom: 60rpx;
 }
@@ -324,9 +340,24 @@
   margin-right: 2rpx;
 }
 
+.marginLR16 {
+  margin-left: 16rpx;
+  margin-right: 16rpx;
+}
+
 .marginLR30 {
   margin-left: 30rpx;
   margin-right: 30rpx;
+}
+
+.marginTB16 {
+  margin-top: 16rpx;
+  margin-bottom: 16rpx;
+}
+
+.marginTB30 {
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
 }
 
 .borderRad10 {

@@ -12,7 +12,10 @@ Page({
   data: {
     num: 20,
     start: 0,
-    query: '',
+    other: {
+      params: '',
+      path: '',
+    },
     video_list: [],
   },
 
@@ -20,15 +23,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const { query } = options;
-    this.setData({ query }, () => this.fetchVideoList());
+    const { query, id } = options;
+    const other = id ? {
+      params: `id=${id}`,
+      path: api.kaiyan_videoList
+    } : {
+      params: `query=${query}`,
+      path: api.kaiyan_search
+    };
+    this.setData({ other }, () => this.fetchVideoList());
   },
 
   fetchVideoList: function () {
     wx.showLoading({ title: '加载中' })
-    const { num, start, video_list, query } = this.data;
-    const params = `num=${num}&start=${start}&query=${query}`
-    post(api.kaiyan_search, params, (res) => {
+    const { num, start, video_list, other } = this.data;
+    const params = `num=${num}&start=${start}&${other.params}`
+    post(other.path, params, (res) => {
       const { itemList } = res;
       const list = [];
       itemList.map(item => {

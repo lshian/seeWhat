@@ -1,0 +1,61 @@
+<view class="container lux_w100v lux_h100v">
+	<view class="box_title lux_w100 disFlex justCC fontS30 col666666 paddLR30">
+		<view
+			wx:for="{{rank_list}}"
+			wx:key="{{index}}"
+			class="title_item marginLR16 {{current === index && 'active'}}"
+			data-index="{{index}}"
+			bindtap="handleChangeTitle"
+		>{{item.name}}</view>
+	</view>
+	<scroll-view class="box_list lux_w100">
+		<swiper
+			current="{{current}}"
+			class="lux_w100 lux_h100"
+			bindchange="handleChangeVideoType"
+		>
+			<swiper-item
+				wx:for="{{rank_list}}"
+				wx:key="{{index}}"
+				class="lux_w100"
+			>
+				<scroll-view
+					scroll-y
+					class="lux_w100 lux_h100 disFlex flexWrap"
+					lower-threshold="300"
+		 			bindscrolltolower="additionalVideos"
+				>
+					<view
+						class="list_item overHid borderRad20 paddLR30 marginT48 disFlex flexWrap"
+						wx:for="{{item.list}}"
+						wx:for-item="newItem"
+						wx:key="{{newItem}}"
+						data-info="{{newItem.id}}"
+						bindtap="handleRouter"
+					>
+						<view class="item_image lux_w100">
+							<image src="{{newItem.url}}" mode="widthFix" class="lux_w100 borderRad20" bindload="imageLoad" />
+						</view>
+						<view class="item_info lux_w100 marginT6 disFlex flexWrap">
+							<image src="{{newItem.author_icon}}" />
+							<view class="item_text flex1 paddL24 textHide">
+								<text class="item_text_title lux_w100 fontS28 fontwb col333333">{{newItem.title}}</text>
+								<view class="item_text_title fontS24 col999999">
+									{{newItem.author_title}}
+									<text class="text_tag">{{newItem.duration}}</text>
+								</view>
+							</view>
+						</view>
+					</view>
+					<view
+						wx:if="{{item.isEnd}}"
+						class="lux_w100 height120 disFlex itemAliC justCC"
+					>
+						<text class="fontS24 col999999">更多视频请前往开眼APP进行查看</text>
+					</view>
+				</scroll-view>
+			</swiper-item>
+		</swiper>
+	</scroll-view>
+</view>
+

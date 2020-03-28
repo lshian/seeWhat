@@ -1,0 +1,47 @@
+<view class="container">
+	<scroll-view
+		scroll-y
+		class="box_list lux_w100v lux_h100v"
+		lower-threshold="100"
+		bindscrolltolower="fetchVideoHistoryList"
+	>
+		<view
+			class="history_item"
+			wx:for="{{history_list}}"
+			wx:key="{{index}}"
+		>
+			<view class="item_title paddLR30 fontS36 fontwb col333333">{{item.title}}</view>
+			<view class="item_list marginT16">
+				<view
+					class="list_item overHid borderRad20 paddLR30 marginB48 disFlex flexWrap"
+					wx:for="{{item.list}}"
+					wx:for-item="newItem"
+					wx:key="{{newItem}}"
+					data-info="{{newItem.id}}"
+					bindtap="handleRouter"
+				>
+					<view class="item_image lux_w100">
+						<image src="{{newItem.url}}" mode="widthFix" class="lux_w100 borderRad20" />
+					</view>
+					<view class="item_info lux_w100 marginT6 disFlex flexWrap">
+						<image src="{{newItem.author_icon}}" />
+						<view class="item_text flex1 paddL24 textHide">
+							<text class="item_text_title lux_w100 fontS28 fontwb col333333">{{newItem.title}}</text>
+							<view class="item_text_title fontS24 col999999">
+								{{newItem.author_title}}
+								<text class="text_tag">{{newItem.duration}}</text>
+							</view>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view
+			wx:if="{{isEnd}}"
+			class="lux_w100 height120 disFlex itemAliC justCC"
+		>
+			<text class="fontS24 col999999">更多视频请前往开眼APP进行查看</text>
+		</view>
+	</scroll-view>
+</view>
+

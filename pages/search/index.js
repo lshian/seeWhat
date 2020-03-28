@@ -12,6 +12,8 @@ Page({
     key: '',
     history_list: [],
     keys_list: [],
+    showClear: false,
+    focus: true,
   },
 
   /**
@@ -49,6 +51,19 @@ Page({
 
       wx.navigateTo({ url: `../videoList/index?query=${value}` })
     }
+  },
+
+  handleInput: function (e) {
+    const { detail: { value } } = e;
+    this.setData({ showClear: !!value });
+  },
+
+  handleClear: function () {
+    this.setData({
+      showClear: false,
+      key: '',
+      focus: true,
+    });
   },
 
   handleClickKey: function (e) {

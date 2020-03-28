@@ -19,11 +19,11 @@ const initData = {
   wallpaper_list: [], // 图片列表
   news_list: [], // 新闻列表
   MenuList: [
-    { src: '/public/images/menu1.png', title: '开眼视频', path: '' },
-    { src: '/public/images/menu2.png', title: '电影', path: 'movieInfo' },
-    { src: '/public/images/menu3.png', title: '美图', path: 'pictureInfo' },
-    { src: '/public/images/menu4.png', title: '壁纸', path: 'wallpaperMobile' },
-    { src: '/public/images/menu5.png', title: '新闻头条', path: 'newsInfo' },
+    { id: 1, src: '/public/images/menu1.png', title: '开眼视频', path: 'videoInfo' },
+    { id: 2, src: '/public/images/menu2.png', title: '电影', path: 'movieInfo' },
+    { id: 3, src: '/public/images/menu3.png', title: '美图', path: 'pictureInfo' },
+    { id: 4, src: '/public/images/menu4.png', title: '壁纸', path: 'wallpaperMobile' },
+    { id: 5, src: '/public/images/menu5.png', title: '新闻头条', path: 'newsInfo' },
   ],
 }
 
@@ -99,7 +99,7 @@ Page({
     const start = 0;
     const count = 10;
     const params = `start=${start}&count=${count}&apikey=0df993c66c0c636e29ecbb5344252a4a`;
-    post(api.douban_theaters, params, (res) => {
+    post(api.douban_soon, params, (res) => {
       const movie_list = res.subjects.map(item => ({
         id: item.id,
         images: item.images.large || item.images.medium || item.images.small,
@@ -242,12 +242,9 @@ Page({
 
   handleRouter:function(event) { // 跳转页面
     const { path, info } = event.currentTarget.dataset;
-    wx.navigateTo({
-      url: `../${path}/index?info=${encodeURIComponent(JSON.stringify(info))}`
-    })
+    const pathname = info
+      ? `../${path}/index?info=${encodeURIComponent(JSON.stringify(info))}`
+      : `../${path}/index`;
+    wx.navigateTo({ url: pathname });
   },
-
-  handleSearch: function () {
-    wx.navigateTo({ url: '../search/index' })
-  }
 })

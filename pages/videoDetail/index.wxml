@@ -63,6 +63,11 @@
 					</view>
 				</view>
 			</view>
+			<view
+				class="lux_w100 height120 disFlex itemAliC justCC"
+			>
+				<text class="fontS24 col999999">更多视频请前往开眼APP进行查看</text>
+			</view>
 		</scroll-view>
 	</view>
 	<image src="{{detail.coverBlurred}}" class="detail_back lux_w100v lux_h100v posFix" />

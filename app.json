@@ -1,11 +1,14 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/search/index",
     "pages/movieInfo/index",
     "pages/movieDetail/index",
     "pages/moviePlay/index",
+    "pages/videoInfo/index",
+    "pages/videoHistory/index",
+    "pages/search/index",
     "pages/videoList/index",
+    "pages/videoRank/index",
     "pages/videoDetail/index",
     "pages/userInfo/index",
     "pages/newsInfo/index",
@@ -18,7 +21,7 @@
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "看点啥",
+    "navigationBarTitleText": "悠乎",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {

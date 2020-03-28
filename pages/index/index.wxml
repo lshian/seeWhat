@@ -6,9 +6,6 @@
 			</view>
 			<view class="title_name fontS50 fontwb">首页</view>
 		</view>
-		<view class="title_more posAbs" bindtap="handleSearch">
-			<icon class="icon iconfont fontS50 col333333 iconIcon_search" />
-		</view>
 	</view>
 	<swiper
 	 autoplay
@@ -62,7 +59,7 @@
 	<icon class="subsection_b marginB42" />
 	<view class="home_movies lux_w100 paddLR30 marginB30" wx:if="{{movie_list.length}}">
 		<view class="fontS36 lineHei36 fontwb marginB24 disFlex justCSB">
-			正在热映
+			即将上映
 			<view
 				class="fontwNor fontS30 disFlex col0279fb"
 				data-path="movieInfo"
@@ -104,7 +101,11 @@
 	<view class="home_videos lux_w100 paddLR30 marginB16" wx:if="{{video_list.length}}">
 		<view class="fontS36 lineHei36 fontwb marginB24 disFlex justCSB">
 			精选短视频
-			<view class="fontwNor fontS30 disFlex col0279fb">
+			<view
+				class="fontwNor fontS30 disFlex col0279fb"
+				data-path="videoInfo"
+				bindtap="handleRouter"
+			>
 				查看更多
 				<icon class="disFlex icon iconfont iconIcon_right" />
 			</view>

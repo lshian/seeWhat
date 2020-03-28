@@ -1,0 +1,23 @@
+/* pages/videoRank/index.wxss */
+
+.box_title {
+  height: 80rpx;
+  line-height: 80rpx;
+  border-bottom: 2rpx solid #eeeeee;
+}
+
+.box_title .active {
+  color: #0279fb;
+  border-bottom: 2rpx solid #0279fb;
+}
+
+.box_list {
+  height: calc(100vh - 80rpx);
+  background: #ffffff;
+}
+
+.item_info image {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+}
