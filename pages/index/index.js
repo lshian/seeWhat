@@ -33,7 +33,7 @@ Page({
     this.fetchCarousel();
     this.validationClass();
     this.fetchMovie();
-    // this.fetchNews();
+    this.fetchNews();
     if (options.type) {
       let path = 'videoDetail';
       if (options.type === 'video') path = `../videoDetail/index?info=${options.info}`;
@@ -48,7 +48,7 @@ Page({
         this.fetchCarousel();
         this.validationClass();
         this.fetchMovie();
-        // this.fetchNews();
+        this.fetchNews();
         // 停止下拉动作
         wx.stopPullDownRefresh();
       });
