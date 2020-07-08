@@ -2,7 +2,7 @@
 //获取应用实例
 const app = getApp()
 
-import { post } from '../../utils/request';
+import { post, get } from '../../utils/request';
 import api from '../../apis';
 import { secondMinuteFormat, getDateAndWeek } from '../../utils/utils';
 
@@ -18,22 +18,14 @@ const initData = {
   pic_class_list: [],
   wallpaper_list: [], // 图片列表
   news_list: [], // 新闻列表
-  MenuList: [
-    { id: 1, src: '/public/images/menu1.png', title: '开眼视频', path: 'videoInfo' },
-    { id: 2, src: '/public/images/menu2.png', title: '电影', path: 'movieInfo' },
-    { id: 3, src: '/public/images/menu3.png', title: '美图', path: 'pictureInfo' },
-    { id: 4, src: '/public/images/menu4.png', title: '壁纸', path: 'wallpaperMobile' },
-    { id: 5, src: '/public/images/menu5.png', title: '新闻头条', path: 'newsInfo' },
-  ],
+  menuList: [],
+  show: false,
 }
 
 Page({
   data: { ...initData },
   onLoad: function (options) {
-    this.fetchCarousel();
-    this.validationClass();
-    this.fetchMovie();
-    this.fetchNews();
+    this.fetchisShow();
     if (options.type) {
       let path = 'videoDetail';
       if (options.type === 'video') path = `../videoDetail/index?info=${options.info}`;
@@ -42,13 +34,40 @@ Page({
     }
   },
 
+  fetchisShow: function () {
+    get('Index', null, (res) => {
+      this.setData({
+        show: Boolean(res.status),
+        menuList: res.status ? [
+          { id: 1, src: '/public/images/menu1.png', title: '开眼视频', path: 'videoInfo' },
+          { id: 2, src: '/public/images/menu2.png', title: '电影', path: 'movieInfo' },
+          { id: 3, src: '/public/images/menu3.png', title: '美图', path: 'pictureInfo' },
+          { id: 4, src: '/public/images/menu4.png', title: '壁纸', path: 'wallpaperMobile' },
+          { id: 5, src: '/public/images/menu5.png', title: '新闻头条', path: 'newsInfo' },
+        ] : [
+          { id: 3, src: '/public/images/menu3.png', title: '美图', path: 'pictureInfo' },
+          { id: 4, src: '/public/images/menu4.png', title: '壁纸', path: 'wallpaperMobile' },
+        ],
+      }, () => {
+        this.fetchCarousel();
+        this.validationClass();
+        if (res.status) {
+          this.fetchMovie();
+          this.fetchNews();
+        }
+      });
+    })
+  },
+
   onPullDownRefresh: function() {
     setTimeout(() => {
       this.setData({ current_index: 0, video_list: [] }, () => {
         this.fetchCarousel();
         this.validationClass();
-        this.fetchMovie();
-        this.fetchNews();
+        if (this.data.show) {
+          this.fetchMovie();
+          this.fetchNews();
+        }
         // 停止下拉动作
         wx.stopPullDownRefresh();
       });
@@ -58,11 +77,12 @@ Page({
   fetchCarousel: function() { // 获取轮播
     post(api.kaiyan_feed, null, (res) => { // 获取每日推荐视频
       const { issueList } = res;
+      const { show } = this.data;
       const itemList = issueList[0] ? issueList[0].itemList : [];
       const carouselList = [];
       const random = Math.floor(Math.random() * 3)
       itemList.map(item => {
-        if (item.type === 'video') {
+        if (item.type === 'video' && show) {
           carouselList.push({
             id: item.data.id,
             playUrl: item.data.playUrl,
@@ -74,7 +94,7 @@ Page({
           })
         }
       })
-      this.fetchVideo(carouselList[random].id);
+      if (show) this.fetchVideo(carouselList[random].id);
       const start = 0;
       const count = 10;
       const query = 'c=WallPaper&a=getAppsByOrder&order=create_time'

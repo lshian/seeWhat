@@ -62,6 +62,21 @@
   font-weight: bold;
 }
 
+.home_menu_item {
+  flex: 1;
+}
+
+.home_menu_item_no {
+  height: 96rpx;
+  background: #cccccc;
+  border-radius: 8rpx;
+  background: linear-gradient(to right, #0468fe, #00edfd);
+}
+.home_menu_item_no:first-child {
+  margin-right: 24rpx;
+  background: linear-gradient(to right, #3221ad, #ca6bda);
+}
+
 .home_menu_item .home_menu_item_image {
   width: 54rpx;
   height: 54rpx;

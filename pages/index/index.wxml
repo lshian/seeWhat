@@ -31,10 +31,7 @@
 				<view class="home_swiper_item_text lux_w100 paddT16 posRel">
 					<view class="item_label lux_w100">
 						<view class="item_title fontS32 lux_w100 textHide disblok fontwb">{{item.title}}</view>
-						<view
-							wx:if="{{item.type === 1}}"
-							class="item_tag fontS26 col999999"
-						>
+						<view wx:if="{{item.type === 1}}" class="item_tag fontS26 col999999">
 							{{item.author_title}}
 						</view>
 					</view>
@@ -42,10 +39,23 @@
 			</view>
 		</swiper-item>
 	</swiper>
-	<icon class="subsection_b" />
-	<view class="home_menu lux_w100 paddLR30 disFlex justCSB paddTB30">
+	<view class="home_menu lux_w100 paddLR30 disFlex paddTB30" wx:if="{{menuList.length === 2}}">
 		<view
-		 wx:for="{{MenuList}}"
+		 wx:for="{{menuList}}"
+		 wx:key="{{index}}"
+		 class="home_menu_item home_menu_item_no disFlex flexDc itemAliC justCC"
+		 data-path="{{item.path}}"
+		 data-info="{{item}}"
+		 bindtap="handleRouter"
+		>
+			<text class="home_menu_item_text fontS24 colffffff">{{item.title}}</text>
+		</view>
+	</view>
+
+	<icon class="subsection_b" wx:if="{{menuList.length !== 2}}" />
+	<view class="home_menu lux_w100 paddLR30 disFlex paddTB30" wx:if="{{menuList.length !== 2}}">
+		<view
+		 wx:for="{{menuList}}"
 		 wx:key="{{index}}"
 		 class="home_menu_item disFlex flexDc itemAliC"
 		 data-path="{{item.path}}"
@@ -56,27 +66,23 @@
 			<text class="home_menu_item_text fontS24 col999999">{{item.title}}</text>
 		</view>
 	</view>
-	<icon class="subsection_b marginB42" />
-	<view class="home_movies lux_w100 paddLR30 marginB30" wx:if="{{movie_list.length}}">
+	<icon wx:if="{{show && movie_list.length}}" class="subsection_b marginB42" />
+	<view wx:if="{{show && movie_list.length}}" class="home_movies lux_w100 paddLR30 marginB30">
 		<view class="fontS36 lineHei36 fontwb marginB24 disFlex justCSB">
 			即将上映
-			<view
-				class="fontwNor fontS30 disFlex col0279fb"
-				data-path="movieInfo"
-				bindtap="handleRouter"
-			>
+			<view class="fontwNor fontS30 disFlex col0279fb" data-path="movieInfo" bindtap="handleRouter">
 				查看更多
 				<icon class="disFlex icon iconfont iconIcon_right" />
 			</view>
 		</view>
 		<scroll-view scroll-x class="movies_box">
 			<view
-				class="movies_item"
-				wx:for="{{movie_list}}"
-				wx:key="{{index}}"
-				data-path="movieDetail"
-				data-info="{{item.id}}"
-				bindtap="handleRouter"
+			 class="movies_item"
+			 wx:for="{{movie_list}}"
+			 wx:key="{{index}}"
+			 data-path="movieDetail"
+			 data-info="{{item.id}}"
+			 bindtap="handleRouter"
 			>
 				<view class="item_images posRel lux_w100 overHid borderRad20">
 					<text class="posAbs colf43244 fontS26">{{item.average}}</text>
@@ -97,15 +103,11 @@
 			</view>
 		</scroll-view>
 	</view>
-	<icon class="subsection_b marginB42" />
-	<view class="home_videos lux_w100 paddLR30 marginB16" wx:if="{{video_list.length}}">
+	<icon wx:if="{{show && video_list.length}}" class="subsection_b marginB42" />
+	<view wx:if="{{show && video_list.length}}" class="home_videos lux_w100 paddLR30 marginB16">
 		<view class="fontS36 lineHei36 fontwb marginB24 disFlex justCSB">
 			精选短视频
-			<view
-				class="fontwNor fontS30 disFlex col0279fb"
-				data-path="videoInfo"
-				bindtap="handleRouter"
-			>
+			<view class="fontwNor fontS30 disFlex col0279fb" data-path="videoInfo" bindtap="handleRouter">
 				查看更多
 				<icon class="disFlex icon iconfont iconIcon_right" />
 			</view>
@@ -145,7 +147,7 @@
 			</view>
 		</view>
 	</view>
-	<icon class="subsection_b marginB42" />
+	<icon class="subsection_b marginB42" wx:if="{{wallpaper_list.length}}" />
 	<view class="home_wallpaper lux_w100 paddLR30 marginB30" wx:if="{{wallpaper_list.length}}">
 		<view class="fontS36 lineHei36 fontwb marginB24 disFlex justCSB">图片壁纸</view>
 		<view class="wallpaper_box lux_w100 overHid borderRad20">
@@ -178,8 +180,8 @@
 			</view>
 		</view>
 	</view>
-	<icon class="subsection_b marginB42" />
-	<view class="home_news lux_w100 paddLR30 marginB30" wx:if="{{news_list.length}}">
+	<icon wx:if="{{show && news_list.length}}" class="subsection_b marginB42" />
+	<view class="home_news lux_w100 paddLR30 marginB30" wx:if="{{show && news_list.length}}">
 		<view class="fontS36 lineHei36 fontwb marginB24 disFlex justCSB">
 			新闻头条
 			<view class="fontwNor fontS30 disFlex col0279fb">
